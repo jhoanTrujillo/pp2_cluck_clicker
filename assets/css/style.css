@@ -1,0 +1,13 @@
+:root {
+  /* General font */
+  --font: 'VT323', monospace;
+  /* Colors */
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}

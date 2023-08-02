@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Metadata-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Froggy Clicker</title>
+  <!-- Google Font import-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <!--Stylesheet & Bulma CSS framework -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+</head>
+<body>
+
+  <nav>
+    <h1>Froggy Clicker</h1>
+  </nav>
+
+  <div class="columns">
+
+    <main class="column is-8">
+
+      <div>
+
+        <div id="clicker-element">
+          <img 
+          src="./assets/images/mr_green_bean.webp" 
+          alt="A picture of a little green frog in a pond with purple clouds"
+          >
+        </div>
+
+        <div>
+          <p>
+            Flies: <span id="score">0</span>
+          </p>
+        </div>
+
+      </div>
+
+    </main>
+
+    <aside id="upgrades" class="column">
+      <h2 class="">Upgrades</h2>
+      <ul id="upgrade-list" class="upgrade-list">
+      </ul>
+    </aside>
+
+  </div>
+
+  <!--Scripts-->
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
