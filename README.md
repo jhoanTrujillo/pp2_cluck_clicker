@@ -25,3 +25,9 @@ The wireframe was inspired by hugely successful coockie clicker. The twist can b
 ### Mobile
 ![Wireframe of app in mobile]()
 
+### Resources 
+
+A list of external resources such as codepen, images, and the likes: 
+
+1. [Background gradient animation by Manuel Pinto](https://codepen.io/P1N2O/pen/pyBNzX) 
+2. [Glass CSS - Tool to preview and quickly generate glass looking css backgrounds by Mike Tromba](https://css.glass/)
