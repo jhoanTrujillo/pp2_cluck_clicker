@@ -2,7 +2,8 @@
   /* General font */
   --font: 'VT323', monospace;
   /* Colors */
-  
+  --high-contrast: #f1f1f1;
+
 }
 
 * {
@@ -10,4 +11,68 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font);
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5 {
+  color: var(--high-contrast) !important;
+}
+
+body{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+/* Animations */
+@keyframes rotation360 {
+  to {
+    transform: rotate(360deg) translate(0px, 0px);
+  }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* General Class Styling */
+.upgrades-container {
+  margin-right: 2em;
+  overflow: scroll;
+  /* From https://css.glass */
+  background: rgba(52, 52, 52, 0.52);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  border: 1px solid rgba(52, 52, 52, 1);
+}
+
+.upgrade-box { 
+  color: var(--high-contrast);
+  margin: auto; 
+  /* From https://css.glass */
+  background: rgba(52, 52, 52, 0.76);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.1px);
+  -webkit-backdrop-filter: blur(10.1px);
+  border: 1px solid rgba(52, 52, 52, 1);
+}
+
+.rotate-animation {
+  -webkit-animation: rotation360 30000s infinite both;
+	animation: rotation360 60s infinite both;
 }
