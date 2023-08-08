@@ -29,4 +29,50 @@ const clicker = class{
     this.clickerElement = clickerElement;  
     this.scoreElement = scoreElement
   }
+  /**
+   * adds score value to scoreElement
+   */
+  addScore() {
+    this.scoreElement.innerHTML = this.score;
+  }
+  /**
+   * Increase score when clicker
+   */
+  scoreIncreaseClick() {
+    this.score += this.incremental + this.bonus;
+  }
+  /**
+  * Method that handles the click functionality on main HTML element.
+  * It increase the score and add the score to the scoreElement. 
+  */
+  clickEvent() {
+    this.clickerElement.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.scoreIncreaseClick();
+      this.addScore();
+    });
+  }
 }
+
+/**
+ * Starts the game. Make sures the document is ready and content loaded before starting
+ */
+const init = () => {
+
+  document.addEventListener("DOMContentLoaded", () => {
+    /* Variables holding the click elements and score element for the clicker class */
+    let clickerElement = document.getElementById("clicker");
+    let scoreElement = document.getElementById("score");
+
+    /* Created new clicker object */
+    let froggyClicker = new clicker(clickerElement, scoreElement);
+
+    /* Class method calls - hover over method for doctype explanation*/
+    froggyClicker.clickEvent();
+    
+
+    });
+}
+
+
+init();
