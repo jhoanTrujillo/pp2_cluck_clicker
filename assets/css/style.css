@@ -76,3 +76,30 @@ body{
   -webkit-animation: rotation360 30000s infinite both;
 	animation: rotation360 60s infinite both;
 }
+
+
+/* Mobile & table touch screens */
+@media screen and (max-width: 1024px) {
+  .clicker-token {
+    border-radius: 50%;
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+}
+/* Desktop screens */
+@media screen and (min-width: 1025px) {
+  .clicker-token {
+    border-radius: 50%;
+    width: 50%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .clicker-token::after {
+    content: "";
+    box-shadow: 0px 0px 37px 20px rgba(255, 255, 255, 0.47);
+    animation: rotation360 3000ms infinite ease;
+  }
+}
