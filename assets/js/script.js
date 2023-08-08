@@ -17,7 +17,7 @@ const clicker = class{
     this.score = 0;
     this.incremental = 1;
     this.bonus = 0;
-    this.goal = 1000000;s
+    this.goal = 1000000;
 
     /* Objects holding the upgrade values */
     this.clickUpgradeObject = {
@@ -49,8 +49,87 @@ const clicker = class{
     this.clickerElement.addEventListener("click", (e) => {
       e.preventDefault();
       this.scoreIncreaseClick();
+      this.displayIncremental(e, this.clickerElement);
       this.addScore();
     });
+  }
+  displayIncremental(e, imageContainer) {
+    //Object to hold mouse X and Y coordinates
+    let mousePosition = {};
+
+    //Create element that will hold the clickpower to display when clicker element is clicked.
+    let powerDisplay = document.createElement("span");
+    powerDisplay.classList.add("temporary-score-display");
+    powerDisplay.classList.add("is-size-2");
+    powerDisplay.innerHTML = `+ ${this.incremental + this.bonus}`;
+
+    //Check if the position if the clicker element is clicked or touch if in touchscreen.
+    if (e.type === "click") {
+      mousePosition.x = e.clientX;
+      mousePosition.y = e.clientY;
+    } else if (e.type === "touchstart") {
+      mousePosition.x = e.touches[0].clientX;
+      mousePosition.y = e.touches[0].clientY;
+    }
+
+    //assigns the position of the mouse or finger touch to powerDisplay
+    powerDisplay.style.left = mousePosition.x + "px";
+    powerDisplay.style.top = mousePosition.y + "px";
+    //gets element holding the clicker element
+    let parent = imageContainer;
+
+    //appends the span holding the clickPower variable to the container
+    parent.appendChild(powerDisplay);
+    powerDisplay.addEventListener("animationend", () => {
+      powerDisplay.remove();
+    });
+    
+  }
+  /**
+   * Method that assigns an event listener to all upgrade boxes.
+   * It should be call individually from the click event since
+   * the method will check for clicks on different elements.
+   */
+  upgradeEvent() {
+    //Targets the element holding all the upgrade boxes
+    let upgradeList = document.getElementsByClassName("upgrade-box");
+
+    //Loop through the upgrade boxes and add different functionality
+    for(let upgrade of upgradeList) {
+      
+      upgrade.addEventListener("click", (e) => {
+        e.preventDefault();
+        //Use the event to target the upgrade-type data attribue of the element.
+        let upgradeType = e.currentTarget.dataset.upgradeType;
+
+        //check for upgrade type to start logic
+        if (upgradeType === "click") {
+          this.clickUpgrade()
+        };    
+      });
+    };
+
+  }
+  /**
+   * Calculate cost, level and details of the clickUpgradeObject.
+   * Adds level and cost to html element.
+   */
+  clickUpgrade() {
+    let score = this.score;
+    let clickUpgrade = this.clickUpgradeObject
+    //Check if score is enough to upgrade and adjust level, cost and score numbers. 
+    if (score >= clickUpgrade.cost) {
+      clickUpgrade.level += 1;
+      this.score -= clickUpgrade.cost;
+      this.bonus = clickUpgrade.level;
+      clickUpgrade.level < 3 ? clickUpgrade.cost *= 2: clickUpgrade.cost = (clickUpgrade.cost + 100) * 2 ;
+      //Add new values to the html element holding click upgrade data.
+      document.getElementById("clickLevel").innerHTML = clickUpgrade.level;
+      document.getElementById("clickUpgradeCost").innerHTML = clickUpgrade.cost ;
+      this.addScore();
+    } else {
+      alert("Not enough flies!")
+    }
   }
 }
 
@@ -68,10 +147,12 @@ const init = () => {
     let froggyClicker = new clicker(clickerElement, scoreElement);
 
     /* Class method calls - hover over method for doctype explanation*/
+
     froggyClicker.clickEvent();
-    
+    froggyClicker.upgradeEvent();    
 
     });
+    
 }
 
 

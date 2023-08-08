@@ -47,6 +47,17 @@ body{
 	}
 }
 
+@keyframes moveUpAndDisappear {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-300%);
+    opacity: 0;
+  }
+}
+
 /* General Class Styling */
 .upgrades-container {
   margin-right: 2em;
@@ -73,10 +84,20 @@ body{
 }
 
 .rotate-animation {
-  -webkit-animation: rotation360 30000s infinite both;
+  -webkit-animation: rotation360 60s infinite both;
 	animation: rotation360 60s infinite both;
 }
 
+.temporary-score-display {
+  position: absolute;
+  /*Prevent selection of element when double clicked*/
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  z-index: 99;
+  -webkit-animation: moveUpAndDisappear 3s ease;
+	animation: moveUpAndDisappear 3s  ease;
+}
 
 /* Mobile & table touch screens */
 @media screen and (max-width: 1024px) {
