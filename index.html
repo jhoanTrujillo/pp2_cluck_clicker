@@ -16,17 +16,17 @@
 </head>
 <body>
 
-  <nav>
-    <h1>Froggy Clicker</h1>
+  <nav class="navbar">
+    <h1 class="title">Froggy Clicker</h1>
   </nav>
 
   <div class="columns">
 
-    <main class="column is-8">
+    <main class="column is-8 section is-medium">
 
       <div>
 
-        <div id="clicker-element">
+        <div id="clicker" class="clicker-token rotate-animation">
           <img 
           src="./assets/images/mr_green_bean.webp" 
           alt="A picture of a little green frog in a pond with purple clouds"
@@ -34,7 +34,7 @@
         </div>
 
         <div>
-          <p>
+          <p class="title">
             Flies: <span id="score">0</span>
           </p>
         </div>
@@ -43,13 +43,30 @@
 
     </main>
 
-    <aside id="upgrades" class="column">
-      <h2 class="">Upgrades</h2>
+    <aside id="upgrades" class="column upgrades-container">
+      <h2 class="title">Upgrades</h2>
       <ul id="upgrade-list" class="upgrade-list">
+
+        <li class="box upgrade-box" data-upgrade-level="0" data-upgrade-type="click">
+          <h3>Tongue Upgrade</h3>
+          <p>Level: <span id="clickLevel">0</span></p>
+          <p>Cost: <span id="clickUpgradeCost">25</span></p>
+          <p>+1 click power/per level</p>
+        </li>
+
+
       </ul>
     </aside>
-
   </div>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Froggy Clicker</strong> by <a href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" aria-label="Link to developer's Github page">Jhoan Trujillo</a>. 
+        2023
+      </p>
+    </div>
+  </footer>
 
   <!--Scripts-->
   <script src="./assets/js/script.js"></script>
