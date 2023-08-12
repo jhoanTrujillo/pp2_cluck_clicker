@@ -99,23 +99,24 @@ body{
 	animation: moveUpAndDisappear 3s  ease;
 }
 
+.clicker-token {
+  border-radius: 50%;
+  margin: auto;
+  overflow: hidden;
+  user-select: none;
+}
+
 /* Mobile & table touch screens */
 @media screen and (max-width: 1024px) {
   .clicker-token {
-    border-radius: 50%;
     width: 70%;
-    margin: auto;
-    overflow: hidden;
   }
   
 }
 /* Desktop screens */
 @media screen and (min-width: 1025px) {
   .clicker-token {
-    border-radius: 50%;
     width: 50%;
-    margin: auto;
-    overflow: hidden;
   }
 
   .clicker-token::after {

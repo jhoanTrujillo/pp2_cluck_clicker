@@ -27,7 +27,7 @@ const clicker = class{
 
     /* Variables for score container and clicker element itself */
     this.clickerElement = clickerElement;  
-    this.scoreElement = scoreElement
+    this.scoreElement = scoreElement;
   }
   /**
    * adds score value to scoreElement
