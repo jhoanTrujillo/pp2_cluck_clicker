@@ -8,26 +8,48 @@
  * The clicker class is the main object of the game.
  * The majority of the game logic will be handle by the object
  * 
- * @param {object} clickerElement - refers to the html element that will be click
- * @param {object} scoreElement - refers to the html element that will display the score
+ * @param {object} clickerElement - Should be given an instance of the element with the clicker ID.
+ * @param {object} scoreElement - Should be given an instance of an element with the score ID.
+ * @param {object} upgradeList - should be given an instance of getElementsByClass using the upgrade class.
  */
 const clicker = class{
-  constructor(clickerElement, scoreElement) {
+  constructor(clickerElement, scoreElement, upgradeList) {
     /* Score tracking variables */
-    this.score = 0;
+    this.score = 75;
     this.incremental = 1;
     this.bonus = 0;
     this.goal = 1000000;
 
     /* Objects holding the upgrade values */
-    this.clickUpgradeObject = {
+    this.clickUpgradeValues = {
       cost: 25,
       level : 0
     }
+    this.timersData = [
+      {
+        title: "timerOne",
+        level: 0,
+        cost: 75,
+        isActive : false
+      },
+      {
+        title: "timerTwo",
+        level: 0,
+        cost: 0,
+        isActive : false
+      },
+      {
+        title: "timerThree",
+        level: 0,
+        cost: 0,
+        isActive : false
+      }
+    ]
 
     /* Variables for score container and clicker element itself */
     this.clickerElement = clickerElement;  
     this.scoreElement = scoreElement;
+    this.upgradeList = upgradeList;
   }
   /**
    * adds score value to scoreElement
@@ -45,13 +67,13 @@ const clicker = class{
   * Method that handles the click functionality on main HTML element.
   * It increase the score and add the score to the scoreElement. 
   */
-  clickEvent() {
+  clickCheck() {
     this.clickerElement.addEventListener("click", (e) => {
       e.preventDefault();
       this.scoreIncreaseClick();
       this.displayIncremental(e, this.clickerElement);
       this.addScore();
-      this.upgradeUnlockChecker();
+      this.unlockUpgrade();
     });
   }
   /**
@@ -99,39 +121,37 @@ const clicker = class{
    * It should be call individually from the click event since
    * the method will check for clicks on different elements.
    */
-  upgradeEvent() {
-    //Targets the element holding all the upgrade boxes
-    let upgradeList = document.getElementsByClassName("upgrade");
-
+  upgradeCheck(e) {
     //Loop through the upgrade boxes and add different functionality
-    for(let upgrade of upgradeList) {
+    for(let upgrade of this.upgradeList) {
       upgrade.addEventListener("click", (e) => {
         e.preventDefault();
 
         //Use the event to target the upgrade-type data attribue of the element.
         let upgradeType = e.currentTarget.dataset.upgradeType;
+
         //check for upgrade type to start logic
         if (upgradeType === "click") {
           this.increaseClickPower()
         } else if (upgradeType === "timer") {
-          this.timerEventUpgrade(e)
+          this.upgradeTimers(e)
         }    
       });
     };
   }
   /**
-   * Calculate cost, level and details of the clickUpgradeObject.
+   * Calculate cost, level and details of the clickUpgradeValues.
    * Adds level and cost to html element.
    */
   increaseClickPower() {
     let score = this.score;
-    let clickUpgrade = this.clickUpgradeObject
+    let clickUpgrade = this.clickUpgradeValues
     //Check if score is enough to upgrade and adjust level, cost and score numbers. 
     if (score >= clickUpgrade.cost) {
       clickUpgrade.level += 1;
       this.score -= clickUpgrade.cost;
       this.bonus = clickUpgrade.level;
-      clickUpgrade.level < 3 ? clickUpgrade.cost *= 2: clickUpgrade.cost = (clickUpgrade.cost + 100) * 2 ;
+      this.upgradeCostCalculator(clickUpgrade)
       //Add new values to the html element holding click upgrade data.
       document.getElementById("clickLevel").innerHTML = clickUpgrade.level;
       document.getElementById("clickUpgradeCost").innerHTML = clickUpgrade.cost ;
@@ -144,26 +164,79 @@ const clicker = class{
    * On click checks if the cost of an upgrade was met by the score
    * If so, unlocks display the new upgrade in the page.
    */
-  upgradeUnlockChecker() {
-    let upgradeList = document.getElementsByClassName("upgrade");
+  unlockUpgrade() {
+    const timerUpgrade = document.getElementsByClassName("upgrade");
 
-    for (let upgrade of upgradeList) {
-      if ( this.score >= upgrade.dataset.upgradeCost ) {
-        upgrade.classList.remove("is-hidden");
-      }
-    }
+    //Lo
+    for (let timerData of this.timersData) {
+      for (let timer of timerUpgrade) {
+        if (timer.dataset.title === timerData.title ) {
 
+          console.log("inside the thing")
+          timer.classList.remove("is-hidden");
+
+        };
+      };
+    };
   }
   /**
-   * Will read the cost of the event
+   * Takes the value of any upgrade clicked and implement logic 
+   * to calculate the new cost of the upgrade.
    * 
-   * @param {*} upgradeElement - represents the event from an event listener in the upgradeEvent method
+   * @param {*} upgradeObjectToCalculate - the object should have a level and cost value
    */
-  IncreaseTimerUpgradeLevel(upgradeElement) {
-    
+  upgradeCostCalculator(upgradeObjectToCalculate) {
+    if (upgradeObjectToCalculate.level < 3 ) {
+      let lowerLevelCost =  Math.floor(upgradeObjectToCalculate.cost * 1.5);
+       upgradeObjectToCalculate.cost = lowerLevelCost;
+    } else {
+      let higherLevels = Math.floor((upgradeObjectToCalculate.cost + 100) * 1.5);
+      upgradeObjectToCalculate.cost = higherLevels;
+    }
   }
-  
-}
+  /**
+   * function that will handle the upgrade of all time based upgrades which have an id of 
+   * timer[number] in the HTML document
+   * 
+   * @param {*} elementToUpgrade - represents the event from an event listener in the upgradeCheck method
+   */
+  upgradeTimers(elementToUpgrade) {
+    let timer = elementToUpgrade.currentTarget;
+
+    for (let timerData of this.timersData) {
+      if (timer.dataset.title === timerData.title) {
+        this.updateTimersDataValues(timerData);
+
+      };
+    };
+  }
+  /**
+   * Takes the timer object assign to an array position in the class. 
+   * Update the parameters if the value of the score inside the class is higher than the cost 
+   * of the upgrade. Lastly, it addes the changes to the element that was clicked.
+   * 
+   * @param {*} timerObject 
+   */
+  updateTimersDataValues(timerObject) {
+    if (this.score >= timerObject.cost) {
+      timerObject.level += 1;
+      this.upgradeCostCalculator(timerObject);
+      timerObject.isActive = true;
+    } else {
+      alert("insuficient Points")
+    }
+  }
+  pointsPerSecond() {
+    let arrayOfTimerData = this.timerData;
+
+    for (let timer of TimersData){
+      if (timer.isActive == true ) {
+
+      };
+    };
+  }
+
+};
 
 /**
  * Starts the game. Make sures the document is ready and content loaded before starting
@@ -172,16 +245,17 @@ const init = () => {
 
   document.addEventListener("DOMContentLoaded", () => {
     /* Variables holding the click elements and score element for the clicker class */
-    let clickerElement = document.getElementById("clicker");
-    let scoreElement = document.getElementById("score");
+    const clickerElement = document.getElementById("clicker");
+    const scoreElement = document.getElementById("score");
+    const upgradeList = document.getElementsByClassName("upgrade")
 
     /* Created new clicker object */
-    let froggyClicker = new clicker(clickerElement, scoreElement);
+    let froggyClicker = new clicker(clickerElement, scoreElement, upgradeList);
 
     /* Class method calls - hover over method for doctype explanation*/
 
-    froggyClicker.clickEvent();
-    froggyClicker.upgradeEvent();
+    froggyClicker.clickCheck();
+    froggyClicker.upgradeCheck();
     });
 }
 
