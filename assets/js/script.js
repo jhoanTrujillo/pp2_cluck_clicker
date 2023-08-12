@@ -51,8 +51,16 @@ const clicker = class{
       this.scoreIncreaseClick();
       this.displayIncremental(e, this.clickerElement);
       this.addScore();
+      this.upgradeUnlockChecker();
     });
   }
+  /**
+   * Adds a span with an animation above the clicker element to display
+   * The amount earn by each click 
+   * 
+   * @param {*} e 
+   * @param {*} imageContainer 
+   */
   displayIncremental(e, imageContainer) {
     //Object to hold mouse X and Y coordinates
     let mousePosition = {};
@@ -75,6 +83,7 @@ const clicker = class{
     //assigns the position of the mouse or finger touch to powerDisplay
     powerDisplay.style.left = mousePosition.x + "px";
     powerDisplay.style.top = mousePosition.y + "px";
+
     //gets element holding the clicker element
     let parent = imageContainer;
 
@@ -92,29 +101,29 @@ const clicker = class{
    */
   upgradeEvent() {
     //Targets the element holding all the upgrade boxes
-    let upgradeList = document.getElementsByClassName("upgrade-box");
+    let upgradeList = document.getElementsByClassName("upgrade");
 
     //Loop through the upgrade boxes and add different functionality
     for(let upgrade of upgradeList) {
-      
       upgrade.addEventListener("click", (e) => {
         e.preventDefault();
+
         //Use the event to target the upgrade-type data attribue of the element.
         let upgradeType = e.currentTarget.dataset.upgradeType;
-
         //check for upgrade type to start logic
         if (upgradeType === "click") {
-          this.clickUpgrade()
-        };    
+          this.increaseClickPower()
+        } else if (upgradeType === "timer") {
+          this.timerEventUpgrade(e)
+        }    
       });
     };
-
   }
   /**
    * Calculate cost, level and details of the clickUpgradeObject.
    * Adds level and cost to html element.
    */
-  clickUpgrade() {
+  increaseClickPower() {
     let score = this.score;
     let clickUpgrade = this.clickUpgradeObject
     //Check if score is enough to upgrade and adjust level, cost and score numbers. 
@@ -131,6 +140,29 @@ const clicker = class{
       alert("Not enough flies!")
     }
   }
+  /**
+   * On click checks if the cost of an upgrade was met by the score
+   * If so, unlocks display the new upgrade in the page.
+   */
+  upgradeUnlockChecker() {
+    let upgradeList = document.getElementsByClassName("upgrade");
+
+    for (let upgrade of upgradeList) {
+      if ( this.score >= upgrade.dataset.upgradeCost ) {
+        upgrade.classList.remove("is-hidden");
+      }
+    }
+
+  }
+  /**
+   * Will read the cost of the event
+   * 
+   * @param {*} upgradeElement - represents the event from an event listener in the upgradeEvent method
+   */
+  IncreaseTimerUpgradeLevel(upgradeElement) {
+    
+  }
+  
 }
 
 /**
@@ -149,10 +181,8 @@ const init = () => {
     /* Class method calls - hover over method for doctype explanation*/
 
     froggyClicker.clickEvent();
-    froggyClicker.upgradeEvent();    
-
+    froggyClicker.upgradeEvent();
     });
-    
 }
 
 

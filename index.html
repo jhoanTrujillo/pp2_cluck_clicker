@@ -50,12 +50,41 @@
     <aside id="upgrades" class="column upgrades-container">
       <h2 class="title">Upgrades</h2>
       <ul id="upgrade-list" class="upgrade-list">
-
-        <li class="box upgrade-box" data-upgrade-level="0" data-upgrade-type="click">
+        <!--
+          This are the upgrades available for the player.
+          All other than the first are reveal after 
+        -->
+        <li 
+        class="box upgrade" 
+        data-upgrade-level="0" 
+        data-upgrade-type="click"
+        >
           <h3 class="is-size-3-desktop">Tongue Upgrade</h3>
           <p class="is-size-4-desktop">Level: <span id="clickLevel">0</span></p>
           <p class="is-size-4-desktop">Cost: <span id="clickUpgradeCost">25</span></p>
           <p class="is-size-4-desktop">+1 click power/per level</p>
+        </li>
+        <li 
+        class="box upgrade is-hidden" 
+        data-upgrade-cost="75" 
+        data-upgrade-level="0" 
+        data-upgrade-type="timer"
+        >
+          <h3 class="is-size-3-desktop is-size-2-mobile">Pond Upgrade</h3>
+          <p class="is-size-4-desktop">Level: <span id="timeUpgradeOneLevel">0</span></p>
+          <p class="is-size-4-desktop">Cost: <span id="timeUpgradeCost">75</span></p>
+          <p class="is-size-4-desktop">+1 points/per second</p>
+        </li>
+        <li 
+        class="box upgrade is-hidden"
+        data-upgrade-cost="125" 
+        data-upgrade-level="0" 
+        data-upgrade-type="timer"
+        >
+          <h3 class="is-size-3-desktop is-size-2-mobile">Frog Friends</h3>
+          <p class="is-size-4-desktop">Level: <span id="timeUpgradeTwoLevel">0</span></p>
+          <p class="is-size-4-desktop">Cost: <span id="timeUpgradeCost">350</span></p>
+          <p class="is-size-4-desktop">+2 points/per second</p>
         </li>
 
       </ul>
