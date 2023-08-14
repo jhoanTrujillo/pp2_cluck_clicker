@@ -17,7 +17,6 @@ const clicker = class{
     /* Score tracking variables */
     this.score = 75;
     this.incremental = 1;
-    this.bonus = 0;
     this.goal = 1000000;
 
     /* Objects holding the upgrade values */
@@ -25,11 +24,11 @@ const clicker = class{
       cost: 25,
       level : 0
     }
-    this.timersData = [
+    this.timers = [
       {
         title: "timerOne",
         level: 0,
-        cost: 75,
+        cost: 50,
         isActive : false
       },
       {
@@ -52,26 +51,30 @@ const clicker = class{
     this.upgradeList = upgradeList;
   }
   /**
-   * adds score value to scoreElement
+   * adds score value to scoreElement.
+   * 
    */
   addScore() {
     this.scoreElement.innerHTML = this.score;
   }
   /**
-   * Increase score when clicker
+   * Increase the score.
+   * Calls the add score method.
+   * 
+   * @param {*} incremental - Should be set to the level of the incremental value in click and to the level value on timer events
    */
-  scoreIncrease(incremental, bonus) {
-    this.score += incremental + bonus;
+  increaseScore(incremental) {
+    this.score += incremental;
     this.addScore();
   }
   /**
-  * Method that handles the click functionality on main HTML element.
-  * It increase the score and add the score to the scoreElement. 
+  * Handles clicks on the HTML element set as the clicker.
+  * Calls the increaseScore method. 
   */
   clickCheck() {
     this.clickerElement.addEventListener("click", (e) => {
       e.preventDefault();
-      this.scoreIncrease(this.incremental, this.bonus);
+      this.increaseScore(this.incremental);
       this.displayIncremental(e, this.clickerElement);
       this.unlockUpgrade();
     });
@@ -91,7 +94,7 @@ const clicker = class{
     let powerDisplay = document.createElement("span");
     powerDisplay.classList.add("temporary-score-display");
     powerDisplay.classList.add("is-size-2");
-    powerDisplay.innerHTML = `+ ${this.incremental + this.bonus}`;
+    powerDisplay.innerHTML = `+ ${this.incremental}`;
 
     //Check if the position if the clicker element is clicked or touch if in touchscreen.
     if (e.type === "click") {
@@ -150,7 +153,7 @@ const clicker = class{
     if (score >= clickUpgrade.cost) {
       clickUpgrade.level += 1;
       this.score -= clickUpgrade.cost;
-      this.bonus = clickUpgrade.level;
+      this.incremental = clickUpgrade.level;
       this.upgradeCostCalculator(clickUpgrade)
       //Add new values to the html element holding click upgrade data.
       document.getElementById("clickLevel").innerHTML = clickUpgrade.level;
@@ -167,7 +170,7 @@ const clicker = class{
   unlockUpgrade() {
     //Loops over the timersData array and then check on the upgradeList value of the class
     //Then if the titles match it removes the is-hidden class and display the object
-    for (let timerData of this.timersData) {
+    for (let timerData of this.timers) {
       for (let timer of this.upgradeList) {
         if (timer.dataset.title === timerData.title ) {
           timer.classList.remove("is-hidden");
@@ -201,7 +204,7 @@ const clicker = class{
     
     //Checks for the titles of the element and array of timer data to match
     //then it will upgrade that specific object in the array 
-    for (let timerData of this.timersData) {
+    for (let timerData of this.timers) {
       if (timer.dataset.title === timerData.title) {
 
         this.updateTimersDataValues(timer, timerData);
@@ -216,7 +219,7 @@ const clicker = class{
    * 
    * @param {*} timerObject 
    */
-  updateTimersDataValues(timerObject, valueFromTimersDataArray) {
+  updateTimersDataValues(timerElement, valueFromTimersDataArray) {
     //Check if 
     if (this.score <  valueFromTimersDataArray.cost) {
       alert("insuficient Points");
@@ -225,42 +228,45 @@ const clicker = class{
 
     if (valueFromTimersDataArray.isActive != true) {
       valueFromTimersDataArray.isActive = true;
+      timerElement.dataset.isActive = valueFromTimersDataArray.isActive;
     } 
-    // this.AddTimeoutEvent(timerObject);
-    this.updateUpgradeValues(valueFromTimersDataArray)
+
+    this.updateUpgradeValues(valueFromTimersDataArray);
+    this.setTimerIncrement(valueFromTimersDataArray);
   }
   /**
-   * Takes one of the timer objects from the timersData array 
-   * Which is given handled by the updateTimersDataValues method. 
-   * It updates the level, cost of the object and adds the value to the HTML element.
+   * Update the values of a timer
    * 
    * @param {*} timerObject - An object with a level and cost value.
    */
-  updateUpgradeValues(timerObject) {
+  updateUpgradeValues(timerObject, timerElement) {
     timerObject.level += 1;
     this.upgradeCostCalculator(timerObject);
     //Builds a ID to later change the value that goes inside the array. 
     const idConstructor = `${timerObject.title}`;
     let idLevel = idConstructor + "Level";
     let idCost = idConstructor + "Cost";
-
-    //This is an
-    document.getElementById(idLevel).innerHTML = `${timerObject.level}`;
-    document.getElementById(idCost.toString()).innerHTMl = `${timerObject.cost}`;
-
+    //Adds values to the generated IDs
+    document.getElementById(idLevel).innerText = `${timerObject.level}`;
+    document.getElementById(idCost).innerText = `${timerObject.cost}`;
   }
-  AddTimeoutEvent(upgradeTimerElement) {
-    if (timerObject.isActive == false) {
-        timerObject.setTimeout(() => {
-          console.log("working..")
-          this.scoreIncrease(timer.level,0);
-        }, 1000);
-      };
+  setTimerIncrement(timerObject) {
+    console.log(timerObject);
+    // if (timerObject.isActive) {
+    //     setTimeout((timerObject) => {
+    //         console.log(timerObject);
+    //         console.log("Increase of :", timerObject.level);
+    //         this.increaseScore(timerObject.level);
+    //     }, 1000);
+    //   };
   }
 }
 
+
 /**
- * Starts the game. Make sures the document is ready and content loaded before starting
+ * Function to start game. It is call at the end of the code and waits for DOM to load
+ * Before anything starts to work. Ensure all elements needed for the script to work is functional.
+ * 
  */
 const init = () => {
 
