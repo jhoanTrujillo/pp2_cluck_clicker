@@ -60,8 +60,9 @@ const clicker = class{
   /**
    * Increase score when clicker
    */
-  scoreIncreaseClick() {
-    this.score += this.incremental + this.bonus;
+  scoreIncrease(incremental, bonus) {
+    this.score += incremental + bonus;
+    this.addScore();
   }
   /**
   * Method that handles the click functionality on main HTML element.
@@ -70,9 +71,8 @@ const clicker = class{
   clickCheck() {
     this.clickerElement.addEventListener("click", (e) => {
       e.preventDefault();
-      this.scoreIncreaseClick();
+      this.scoreIncrease(this.incremental, this.bonus);
       this.displayIncremental(e, this.clickerElement);
-      this.addScore();
       this.unlockUpgrade();
     });
   }
@@ -165,14 +165,11 @@ const clicker = class{
    * If so, unlocks display the new upgrade in the page.
    */
   unlockUpgrade() {
-    const timerUpgrade = document.getElementsByClassName("upgrade");
-
-    //Lo
+    //Loops over the timersData array and then check on the upgradeList value of the class
+    //Then if the titles match it removes the is-hidden class and display the object
     for (let timerData of this.timersData) {
-      for (let timer of timerUpgrade) {
+      for (let timer of this.upgradeList) {
         if (timer.dataset.title === timerData.title ) {
-
-          console.log("inside the thing")
           timer.classList.remove("is-hidden");
 
         };
@@ -187,25 +184,27 @@ const clicker = class{
    */
   upgradeCostCalculator(upgradeObjectToCalculate) {
     if (upgradeObjectToCalculate.level < 3 ) {
-      let lowerLevelCost =  Math.floor(upgradeObjectToCalculate.cost * 1.5);
+      const lowerLevelCost =  Math.floor(upgradeObjectToCalculate.cost * 1.5);
        upgradeObjectToCalculate.cost = lowerLevelCost;
     } else {
-      let higherLevels = Math.floor((upgradeObjectToCalculate.cost + 100) * 1.5);
+      const higherLevels = Math.floor((upgradeObjectToCalculate.cost + 25) * 1.5);
       upgradeObjectToCalculate.cost = higherLevels;
     }
   }
   /**
-   * function that will handle the upgrade of all time based upgrades which have an id of 
-   * timer[number] in the HTML document
+   * function that handleS all time based upgrades.
    * 
    * @param {*} elementToUpgrade - represents the event from an event listener in the upgradeCheck method
    */
   upgradeTimers(elementToUpgrade) {
     let timer = elementToUpgrade.currentTarget;
-
+    
+    //Checks for the titles of the element and array of timer data to match
+    //then it will upgrade that specific object in the array 
     for (let timerData of this.timersData) {
       if (timer.dataset.title === timerData.title) {
-        this.updateTimersDataValues(timerData);
+
+        this.updateTimersDataValues(timer, timerData);
 
       };
     };
@@ -217,26 +216,48 @@ const clicker = class{
    * 
    * @param {*} timerObject 
    */
-  updateTimersDataValues(timerObject) {
-    if (this.score >= timerObject.cost) {
-      timerObject.level += 1;
-      this.upgradeCostCalculator(timerObject);
-      timerObject.isActive = true;
-    } else {
-      alert("insuficient Points")
+  updateTimersDataValues(timerObject, valueFromTimersDataArray) {
+    //Check if 
+    if (this.score <  valueFromTimersDataArray.cost) {
+      alert("insuficient Points");
+      return;
     }
+
+    if (valueFromTimersDataArray.isActive != true) {
+      valueFromTimersDataArray.isActive = true;
+    } 
+    // this.AddTimeoutEvent(timerObject);
+    this.updateUpgradeValues(valueFromTimersDataArray)
   }
-  pointsPerSecond() {
-    let arrayOfTimerData = this.timerData;
+  /**
+   * Takes one of the timer objects from the timersData array 
+   * Which is given handled by the updateTimersDataValues method. 
+   * It updates the level, cost of the object and adds the value to the HTML element.
+   * 
+   * @param {*} timerObject - An object with a level and cost value.
+   */
+  updateUpgradeValues(timerObject) {
+    timerObject.level += 1;
+    this.upgradeCostCalculator(timerObject);
+    //Builds a ID to later change the value that goes inside the array. 
+    const idConstructor = `${timerObject.title}`;
+    let idLevel = idConstructor + "Level";
+    let idCost = idConstructor + "Cost";
 
-    for (let timer of TimersData){
-      if (timer.isActive == true ) {
+    //This is an
+    document.getElementById(idLevel).innerHTML = `${timerObject.level}`;
+    document.getElementById(idCost.toString()).innerHTMl = `${timerObject.cost}`;
 
+  }
+  AddTimeoutEvent(upgradeTimerElement) {
+    if (timerObject.isActive == false) {
+        timerObject.setTimeout(() => {
+          console.log("working..")
+          this.scoreIncrease(timer.level,0);
+        }, 1000);
       };
-    };
   }
-
-};
+}
 
 /**
  * Starts the game. Make sures the document is ready and content loaded before starting
@@ -247,7 +268,7 @@ const init = () => {
     /* Variables holding the click elements and score element for the clicker class */
     const clickerElement = document.getElementById("clicker");
     const scoreElement = document.getElementById("score");
-    const upgradeList = document.getElementsByClassName("upgrade")
+    const upgradeList = document.querySelectorAll(".upgrade")
 
     /* Created new clicker object */
     let froggyClicker = new clicker(clickerElement, scoreElement, upgradeList);
