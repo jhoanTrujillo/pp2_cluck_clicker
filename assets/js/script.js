@@ -15,7 +15,7 @@
 const clicker = class{
   constructor(clickerElement, scoreElement, upgradeList) {
     /* Score tracking variables */
-    this.score = 75;
+    this.score = 50;
     this.incremental = 1;
     this.goal = 1000000;
 
@@ -29,6 +29,7 @@ const clicker = class{
         title: "timerOne",
         level: 0,
         cost: 50,
+        increment: .1,
         isActive : false
       },
       {
@@ -153,7 +154,7 @@ const clicker = class{
     if (score >= clickUpgrade.cost) {
       clickUpgrade.level += 1;
       this.score -= clickUpgrade.cost;
-      this.incremental = clickUpgrade.level;
+      this.incremental += 1;
       this.upgradeCostCalculator(clickUpgrade)
       //Add new values to the html element holding click upgrade data.
       document.getElementById("clickLevel").innerHTML = clickUpgrade.level;
@@ -220,7 +221,7 @@ const clicker = class{
    * @param {*} timerObject 
    */
   updateTimersDataValues(timerElement, valueFromTimersDataArray) {
-    //Check if 
+    //Check if score is enough to purchase upgrade. If not, push message.
     if (this.score <  valueFromTimersDataArray.cost) {
       alert("insuficient Points");
       return;
@@ -239,8 +240,11 @@ const clicker = class{
    * 
    * @param {*} timerObject - An object with a level and cost value.
    */
-  updateUpgradeValues(timerObject, timerElement) {
+  updateUpgradeValues(timerObject) {
     timerObject.level += 1;
+    console.log("Reduce score by: ", timerObject.cost);
+    this.score -= timerObject.cost;
+    this.scoreElement.innerHTML = this.score;
     this.upgradeCostCalculator(timerObject);
     //Builds a ID to later change the value that goes inside the array. 
     const idConstructor = `${timerObject.title}`;
@@ -251,15 +255,20 @@ const clicker = class{
     document.getElementById(idCost).innerText = `${timerObject.cost}`;
   }
   setTimerIncrement(timerObject) {
-    console.log(timerObject);
-    // if (timerObject.isActive) {
-    //     setTimeout((timerObject) => {
-    //         console.log(timerObject);
-    //         console.log("Increase of :", timerObject.level);
-    //         this.increaseScore(timerObject.level);
-    //     }, 1000);
-    //   };
-  }
+    if (timerObject.isActive) {
+      const incremental = timerObject.increment;
+      const scoreElement = this.scoreElement; // Assuming you have defined scoreElement somewhere
+      
+      const updateScore = () => {
+        this.score = this.score + incremental; 
+        this.score = Math.round(this.score); 
+        scoreElement.innerHTML = this.score;
+        setTimeout(updateScore, 5000); // Call the function again after 1000ms (1 second)
+      };
+  
+      setTimeout(updateScore, 5000); // Initial call to start the process
+    }
+  }  
 }
 
 
