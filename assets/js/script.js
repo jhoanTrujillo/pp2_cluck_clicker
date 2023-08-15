@@ -5,6 +5,12 @@
 * ====================================================================================================== */
 
 /**
+ * Function to start game. It is call at the end of the code and waits for DOM to load
+ * Before anything starts to work. Ensure all elements needed for the script to work is functional.
+ * 
+ */
+const init = () => {
+  /**
  * The clicker class is the main object of the game.
  * The majority of the game logic will be handle by the object
  * 
@@ -29,19 +35,21 @@ const clicker = class{
         title: "timerOne",
         level: 0,
         cost: 50,
-        increment: .1,
+        bonus: 0.1,
         isActive : false
       },
       {
         title: "timerTwo",
         level: 0,
-        cost: 0,
+        cost: 95,
+        bonus: 0.5,
         isActive : false
       },
       {
         title: "timerThree",
         level: 0,
-        cost: 0,
+        cost: 145,
+        bonus: 1,
         isActive : false
       }
     ]
@@ -56,7 +64,7 @@ const clicker = class{
    * 
    */
   addScore() {
-    this.scoreElement.innerHTML = this.score;
+    this.scoreElement.innerHTML = Math.round((this.score + Number.EPSILON) * 100) / 100;
   }
   /**
    * Increase the score.
@@ -92,10 +100,15 @@ const clicker = class{
     let mousePosition = {};
 
     //Create element that will hold the clickpower to display when clicker element is clicked.
-    let powerDisplay = document.createElement("span");
+    const powerDisplay = document.createElement("div");
     powerDisplay.classList.add("temporary-score-display");
-    powerDisplay.classList.add("is-size-2");
-    powerDisplay.innerHTML = `+ ${this.incremental}`;
+    powerDisplay.classList.add("is-size-1");
+    powerDisplay.innerHTML = `${this.incremental}`;
+
+    const frogIcon = document.createElement("img");
+    frogIcon.classList.add("frog-icon");
+    frogIcon.src = "./assets/images/green_bean_icon.svg";
+    powerDisplay.appendChild(frogIcon);
 
     //Check if the position if the clicker element is clicked or touch if in touchscreen.
     if (e.type === "click") {
@@ -114,6 +127,7 @@ const clicker = class{
     let parent = imageContainer;
 
     //appends the span holding the clickPower variable to the container
+
     parent.appendChild(powerDisplay);
     powerDisplay.addEventListener("animationend", () => {
       powerDisplay.remove();
@@ -171,13 +185,11 @@ const clicker = class{
   unlockUpgrade() {
     //Loops over the timersData array and then check on the upgradeList value of the class
     //Then if the titles match it removes the is-hidden class and display the object
-    for (let timerData of this.timers) {
-      for (let timer of this.upgradeList) {
-        if (timer.dataset.title === timerData.title ) {
-          timer.classList.remove("is-hidden");
-
-        };
-      };
+    for (let timer of this.timers) {
+      if (this.score >= timer.cost && timer.isActive != true) {
+        const target = document.querySelector(`li[data-title="${timer.title}"]`);
+        target.classList.remove("is-hidden");
+      }
     };
   }
   /**
@@ -207,9 +219,7 @@ const clicker = class{
     //then it will upgrade that specific object in the array 
     for (let timerData of this.timers) {
       if (timer.dataset.title === timerData.title) {
-
         this.updateTimersDataValues(timer, timerData);
-
       };
     };
   }
@@ -230,10 +240,11 @@ const clicker = class{
     if (valueFromTimersDataArray.isActive != true) {
       valueFromTimersDataArray.isActive = true;
       timerElement.dataset.isActive = valueFromTimersDataArray.isActive;
+      this.setTimerIncrement(valueFromTimersDataArray);
     } 
 
     this.updateUpgradeValues(valueFromTimersDataArray);
-    this.setTimerIncrement(valueFromTimersDataArray);
+    valueFromTimersDataArray.bonus += 0.1;
   }
   /**
    * Update the values of a timer
@@ -245,55 +256,59 @@ const clicker = class{
     console.log("Reduce score by: ", timerObject.cost);
     this.score -= timerObject.cost;
     this.scoreElement.innerHTML = this.score;
+
     this.upgradeCostCalculator(timerObject);
-    //Builds a ID to later change the value that goes inside the array. 
-    const idConstructor = `${timerObject.title}`;
-    let idLevel = idConstructor + "Level";
-    let idCost = idConstructor + "Cost";
+
+    const id = this.idBuilder(timerObject);
+
     //Adds values to the generated IDs
-    document.getElementById(idLevel).innerText = `${timerObject.level}`;
-    document.getElementById(idCost).innerText = `${timerObject.cost}`;
+    document.getElementById(id[0]).innerText = `${timerObject.level}`;
+    document.getElementById(id[1]).innerText = `${timerObject.cost}`;
+  }
+  /**
+   * Builds the ID needed 
+   * @param {*} timerObjectReference 
+   * @returns - an array with the following result 0 : level display id, 1 : cost display id.
+   */
+  idBuilder(timerObjectReference) {
+    //Builds a ID to later change the value that goes inside the array. 
+    const id = `${timerObjectReference.title}`;
+    const idLevel = id + "Level";
+    const idCost = id + "Cost";
+
+    return [idLevel, idCost];
   }
   setTimerIncrement(timerObject) {
     if (timerObject.isActive) {
-      const incremental = timerObject.increment;
+      const incremental = timerObject.bonus;
       const scoreElement = this.scoreElement; // Assuming you have defined scoreElement somewhere
       
       const updateScore = () => {
-        this.score = this.score + incremental; 
-        this.score = Math.round(this.score); 
+        this.score += incremental;
+        this.score = Math.round((this.score + Number.EPSILON) * 100) / 100;
         scoreElement.innerHTML = this.score;
-        setTimeout(updateScore, 5000); // Call the function again after 1000ms (1 second)
+        setTimeout(updateScore, 1000); // Call the function again after 1000ms (1 second)
       };
   
-      setTimeout(updateScore, 5000); // Initial call to start the process
+      setTimeout(updateScore, 1000); // Initial call to start the process
     }
   }  
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  /* Variables holding the click elements and score element for the clicker class */
+  const clickerElement = document.getElementById("clicker");
+  const scoreElement = document.getElementById("score");
+  const upgradeList = document.querySelectorAll(".upgrade")
 
-/**
- * Function to start game. It is call at the end of the code and waits for DOM to load
- * Before anything starts to work. Ensure all elements needed for the script to work is functional.
- * 
- */
-const init = () => {
+  /* Created new clicker object */
+  let froggyClicker = new clicker(clickerElement, scoreElement, upgradeList);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    /* Variables holding the click elements and score element for the clicker class */
-    const clickerElement = document.getElementById("clicker");
-    const scoreElement = document.getElementById("score");
-    const upgradeList = document.querySelectorAll(".upgrade")
+  /* Class method calls - hover over method for doctype explanation*/
 
-    /* Created new clicker object */
-    let froggyClicker = new clicker(clickerElement, scoreElement, upgradeList);
-
-    /* Class method calls - hover over method for doctype explanation*/
-
-    froggyClicker.clickCheck();
-    froggyClicker.upgradeCheck();
-    });
+  froggyClicker.clickCheck();
+  froggyClicker.upgradeCheck();
+  });
 }
-
 
 init();

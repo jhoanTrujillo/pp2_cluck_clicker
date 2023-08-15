@@ -3,6 +3,7 @@
   --font: 'VT323', monospace;
   /* Colors */
   --high-contrast: #f1f1f1;
+  --accent-color: #292fe8;
 
 }
 
@@ -17,9 +18,12 @@ h1,
 h2, 
 h3, 
 h4, 
-h5 {
+h5,
+p {
   color: var(--high-contrast) !important;
 }
+
+
 
 body{
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -89,7 +93,11 @@ body{
 }
 
 .temporary-score-display {
+  display: flex;
+  flex-direction: row;
   position: absolute;
+  color: var(--accent-color);
+  width: 100px;
   /*Prevent selection of element when double clicked*/
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -99,11 +107,18 @@ body{
 	animation: moveUpAndDisappear 3s  ease;
 }
 
+.frog-icon {
+  width: 50%;
+}
+
 .clicker-token {
   border-radius: 50%;
   margin: auto;
   overflow: hidden;
-  user-select: none;
+  /*Prevent selection of element when double clicked*/
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 /* Mobile & table touch screens */

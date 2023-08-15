@@ -15,80 +15,104 @@
   
 </head>
 <body>
+  <div class="container">
+    <nav class="">
+      <h1 class="title">Froggy Clicker</h1>
+    </nav>
 
-  <nav class="">
-    <h1 class="title">Froggy Clicker</h1>
-  </nav>
+    <div class="columns">
 
-  <div class="columns">
-
-    <main class="column is-8 section is-medium">
-
-      <div>
-
-        <div id="clicker" class="clicker-token">
-          <img 
-          src="./assets/images/mr_green_bean.webp" 
-          alt="A picture of a little green frog in a pond with purple clouds"
-          class="rotate-animation"
-          >
-        </div>
+      <main class="column is-8 section is-medium">
 
         <div>
-          <p class="title">
-            Points: <span id="score">0</span>
-          </p>
-          <p class="title">
-            Goal: 1,000,000
-          </p>
+
+          <div id="clicker" class="clicker-token">
+            <img 
+            src="./assets/images/mr_green_bean.webp" 
+            alt="A picture of a little green frog in a pond with purple clouds"
+            class="rotate-animation"
+            >
+          </div>
+
+          <div>
+            <p class="title">
+              Points: <span id="score">0</span>
+            </p>
+            <p class="title">
+              Goal: 1,000,000
+            </p>
+          </div>
+
         </div>
 
-      </div>
+      </main>
 
-    </main>
+      <aside id="upgrades" class="column upgrades-container is-hidden">
+        <h2 class="title">Upgrades</h2>
+        <ul id="upgrade-list" class="upgrade-list">
+          <!--
+            This are the upgrades available for the player.
+            All other than the first are reveal after 
+          -->
+          <li 
+          class="box upgrade" 
+          data-upgrade-level="0" 
+          data-upgrade-type="click"
+          >
+            <h3 class="is-size-3-desktop">Upgrade Click</h3>
+            <p class="is-size-4-desktop">Level: <span id="clickLevel">0</span></p>
+            <p class="is-size-4-desktop">Cost: <span id="clickUpgradeCost">25</span></p>
+            <p class="is-size-4-desktop">+1 click power/per level</p>
+          </li>
+          <!-- Time based upgrades -->
+          <li 
+          class="box upgrade is-hidden" 
+          data-title="timerOne"
+          data-upgrade-type="timer"
+          data-is-active="false"
+          >
+            <h3 class="is-size-3-desktop is-size-2-mobile">Upgrade Pond</h3>
+            <p class="is-size-4-desktop">Level: <span id="timerOneLevel">0</span></p>
+            <p class="is-size-4-desktop">Cost: <span id="timerOneCost">50</span></p>
+            <p class="is-size-5-desktop is-size-4-desktop">+0.1 points/per second per level</p>
+          </li>
 
-    <aside id="upgrades" class="column upgrades-container">
-      <h2 class="title">Upgrades</h2>
-      <ul id="upgrade-list" class="upgrade-list">
-        <!--
-          This are the upgrades available for the player.
-          All other than the first are reveal after 
-        -->
-        <li 
-        class="box upgrade" 
-        data-upgrade-level="0" 
-        data-upgrade-type="click"
-        >
-          <h3 class="is-size-3-desktop">Tongue Upgrade</h3>
-          <p class="is-size-4-desktop">Level: <span id="clickLevel">0</span></p>
-          <p class="is-size-4-desktop">Cost: <span id="clickUpgradeCost">25</span></p>
-          <p class="is-size-4-desktop">+1 click power/per level</p>
-        </li>
+          <li 
+          class="box upgrade is-hidden" 
+          data-title="timerTwo"
+          data-upgrade-type="timer"
+          data-is-active="false"
+          >
+            <h3 class="is-size-3-desktop is-size-2-mobile">Pond Upgrade</h3>
+            <p class="is-size-4-desktop">Level: <span id="timerTwoLevel">0</span></p>
+            <p class="is-size-4-desktop">Cost: <span id="timerTwoCost">95</span></p>
+            <p class="is-size-4-desktop">+0.5 points/per second</p>
+          </li>
 
-        <li 
-        class="box upgrade is-hidden" 
-        data-title="timerOne"
-        data-upgrade-type="timer"
-        data-is-active="false"
-        >
-          <h3 class="is-size-3-desktop is-size-2-mobile">Pond Upgrade</h3>
-          <p class="is-size-4-desktop">Level: <span id="timerOneLevel">0</span></p>
-          <p class="is-size-4-desktop">Cost: <span id="timerOneCost">50</span></p>
-          <p class="is-size-4-desktop">+0.5 points/per second</p>
-        </li>
-       
-      </ul>
-    </aside>
+          <li 
+          class="box upgrade is-hidden" 
+          data-title="timerThree"
+          data-upgrade-type="timer"
+          data-is-active="false"
+          >
+            <h3 class="is-size-3-desktop is-size-2-mobile">Pond Upgrade</h3>
+            <p class="is-size-4-desktop">Level: <span id="timerThreeLevel">0</span></p>
+            <p class="is-size-4-desktop">Cost: <span id="timerThreeCost">95</span></p>
+            <p class="is-size-4-desktop">+1 points/per second</p>
+          </li>
+
+        </ul>
+      </aside>
+    </div>
   </div>
-
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="content has-text-centered">
       <p>
         <strong>Froggy Clicker</strong> by <a href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" aria-label="Link to developer's Github page">Jhoan Trujillo</a>. 
         2023
       </p>
     </div>
-  </footer>
+  </footer> -->
 
   <!--Scripts-->
   <script src="./assets/js/script.js"></script>
