@@ -21,7 +21,7 @@ const init = () => {
 const clicker = class{
   constructor(clickerElement, scoreElement, upgradeList) {
     /* Score tracking variables */
-    this.score = 50;
+    this.score = 0;
     this.incremental = 1;
     this.goal = 1000000;
 
@@ -53,11 +53,14 @@ const clicker = class{
         isActive : false
       }
     ]
-
+    
     /* Variables for score container and clicker element itself */
     this.clickerElement = clickerElement;  
     this.scoreElement = scoreElement;
     this.upgradeList = upgradeList;
+
+    /* */
+    this.loadFromLocalStorage();
   }
   /**
    * adds score value to scoreElement.
@@ -74,6 +77,7 @@ const clicker = class{
    */
   increaseScore(incremental) {
     this.score += incremental;
+    this.saveToLocalStorage();
     this.addScore();
   }
   /**
@@ -170,9 +174,10 @@ const clicker = class{
       this.score -= clickUpgrade.cost;
       this.incremental += 1;
       this.upgradeCostCalculator(clickUpgrade)
+      this.saveToLocalStorage();
       //Add new values to the html element holding click upgrade data.
       document.getElementById("clickLevel").innerHTML = clickUpgrade.level;
-      document.getElementById("clickUpgradeCost").innerHTML = clickUpgrade.cost ;
+      document.getElementById("clickUpgradeCost").innerHTML = clickUpgrade.cost;
       this.addScore();
     } else {
       alert("Not enough flies!")
@@ -292,7 +297,61 @@ const clicker = class{
   
       setTimeout(updateScore, 1000); // Initial call to start the process
     }
+  }
+  /**
+   * Loads the data store in the local storage to then repopulate.
+   */
+  loadFromLocalStorage() {
+    const savedData = localStorage.getItem('froggyClickerData');
+
+    if (savedData) {
+      const parsedData = JSON.parse(savedData);
+
+      this.score = parsedData.score;
+      this.incremental = parsedData.incremental;
+      this.clickUpgradeValues = parsedData.clickUpgradeValues;
+      this.timers = parsedData.timers;
+
+      // Update HTML elements with loaded data
+      this.scoreElement.innerHTML = Math.round((this.score + Number.EPSILON) * 100) / 100;
+      document.getElementById("clickLevel").innerHTML = this.clickUpgradeValues.level;
+      document.getElementById("clickUpgradeCost").innerHTML = this.clickUpgradeValues.cost;
+
+      for (let i = 0; i < this.timers.length; i++) {
+        const timer = this.timers[i];
+        const parentElement = document.querySelector(`[data-title='${timer.title}']`);
+        const levelElement = document.getElementById(`${timer.title}Level`);
+        const costElement = document.getElementById(`${timer.title}Cost`);
+
+        if (timer.isActive) {
+          parentElement.classList.remove("is-hidden");
+          // Restart the old setTimeout function for active timers
+          this.setTimerIncrement(timer);
+          const bonus = (timer.bonus * timer.level).toFixed(1);
+          levelElement.innerHTML = timer.level;
+          costElement.innerHTML = timer.cost;
+          // Update the bonus value in your HTML structure if needed
+        } else {
+          levelElement.innerHTML = "0";
+          costElement.innerHTML = timer.cost;
+        }
+      }
+    }
+  }
+  /**
+   * Use to save the data needed to run the game in local storage.
+   */
+  saveToLocalStorage() {
+    const dataToSave = {
+      score: this.score,
+      incremental: this.incremental,
+      clickUpgradeValues: this.clickUpgradeValues,
+      timers: this.timers
+    };
+
+    localStorage.setItem('froggyClickerData', JSON.stringify(dataToSave));
   }  
+  //End of class
 }
 
 document.addEventListener("DOMContentLoaded", () => {

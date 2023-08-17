@@ -1,17 +1,17 @@
 :root {
   /* General font */
-  --font: 'VT323', monospace;
+  --general-font: 'Montserrat', sans-serif;
+  --display-font: 'Cherry Bomb One', cursive;
   /* Colors */
   --high-contrast: #f1f1f1;
-  --accent-color: #292fe8;
-
+  --accent-color: hsl(348, 100%, 61%);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font);
+  font-family: var(--general-font);
 }
 
 h1, 
@@ -97,6 +97,7 @@ body{
   flex-direction: row;
   position: absolute;
   color: var(--accent-color);
+  font-family: var(--display-font);
   width: 100px;
   /*Prevent selection of element when double clicked*/
   -webkit-user-select: none; /* Safari */
