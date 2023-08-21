@@ -39,33 +39,28 @@
     </nav>
 
     <div class="columns is-desktop">
-
-      <main class="column is-8 section is-medium">
-
-        <div>
-
-          <div id="clicker" class="clicker-token">
-            <img 
-            src="./assets/images/mr_green_bean.webp" 
-            alt="A picture of a little green frog in a pond with purple clouds"
-            class="rotate-animation"
-            >
-          </div>
-
-          <div>
-            <p class="title">
-              Points: <span id="score">0</span>
-            </p>
-            <p class="title">
-              Goal: 1,000,000
-            </p>
-          </div>
-
+      <main class="column is-8 section">
+        <div id="clicker" class="container-clicker">
+          <img 
+          src="./assets/images/mr_green_bean.webp" 
+          alt="A picture of a little green frog in a pond with purple clouds"
+          class="rotate-animation"
+          aria-label="Click the image to gain points"
+          >
         </div>
-
+        
+        <!-- section holding the scores and goal-->
+        <div class="container columns container-score">
+          <p class="is-size-4-mobile column">
+            Points: <span id="score">0</span>
+          </p>
+          <p class="is-size-4-mobile column">
+            Goal: 1,000,000
+          </p>
+        </div>
       </main>
 
-      <aside id="upgrades" class="column upgrades-container">
+      <aside id="upgrades" class="column upgrades-container is-hidden-mobile">
         <div class="">
           <h2 class="title">Upgrades</h2>
           

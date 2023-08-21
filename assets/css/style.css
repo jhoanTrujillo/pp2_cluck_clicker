@@ -115,7 +115,7 @@ body{
   width: 50%;
 }
 
-.clicker-token {
+.container-clicker {
   border-radius: 50%;
   margin: auto;
   overflow: hidden;
@@ -125,7 +125,7 @@ body{
   user-select: none; /* Standard syntax */
 }
 
-/* Mobile */
+/* Mobile styling */
 @media screen and (max-width: 780px) {
   .upgrades-container {
     position: absolute;
@@ -140,6 +140,24 @@ body{
     position: absolute;
     width: 100%;
   }
+
+  /* Clicker element styling */
+  .container-clicker {
+    margin: 5em auto;
+  }
+
+  /* Score container holder */
+  .container-score {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: initial;
+    max-width: 100%;
+    gap: 1em;
+    bottom: 2em;
+    margin: 1em;
+  }
+
 }
 /* Desktop & tablets screens */
 @media screen and (min-width: 781px) {
