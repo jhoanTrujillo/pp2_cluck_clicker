@@ -405,7 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Class methods for menus in the game
   navbar.toggleMenu();
-  navbar.toggleUpgradesContainergit();
+  navbar.toggleUpgradesContainer();
 
   // Class methods for clicker
   froggyClicker.clickCheck();
