@@ -354,17 +354,43 @@ const clicker = class{
   //End of class
 }
 
+/* Navbar elements and behaviour */
+const menus = class{
+  constructor() {
+    this.burgerBtn = document.querySelector("[data-target='burgerBtn']");
+    this.navList = document.getElementById("nav-items");
+  }
+  /**
+   * Toggles the mobile menu to display the items inside the burger menu.
+   * Tap burger menu to display options.
+   */
+  toggleMenu() {
+    this.burgerBtn.addEventListener("click", e => {
+      e.preventDefault();
+      this.navList.classList.toggle("is-active");
+    }); 
+  }
+  
+  //End of class
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  /* Variables holding the click elements and score element for the clicker class */
+  // Variables holding the click elements and score element for the clicker class
   const clickerElement = document.getElementById("clicker");
   const scoreElement = document.getElementById("score");
   const upgradeList = document.querySelectorAll(".upgrade")
 
-  /* Created new clicker object */
+  // Created new clicker object 
   let froggyClicker = new clicker(clickerElement, scoreElement, upgradeList);
+  // Create new menu object
+  let navbar = new menus();
 
-  /* Class method calls - hover over method for doctype explanation*/
+  // Class method calls - hover over method for doctype explanation.
 
+  // Class methods for menus in the game
+  navbar.toggleMenu();
+
+  // Class methods for clicker
   froggyClicker.clickCheck();
   froggyClicker.upgradeCheck();
   });

@@ -17,16 +17,28 @@
 <body>
   
     <nav class="navbar has-background-black">
-      <a href="">
-        <h1 class="navbar-brand title">Froggy Clicker</h1>
-      </a>
-      <div class="navbar-end">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <h1 class="is-size-4-mobile">Froggy Clicker</h1>
+          
+        </a>
+        <a role="button" class="navbar-burger has-background-black has-text-white" 
+        aria-label="menu" 
+        aria-expanded="false" 
+        data-target="burgerBtn">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+      <div class="navbar-menu navbar-end has-background-black" id="nav-items">
         <a href="#" class="navbar-item has-text-light">rules</a>
         <a href="#" class="navbar-item has-text-light">contact</a>
       </div>
     </nav>
 
-    <div class="columns">
+    <div class="columns is-desktop">
 
       <main class="column is-8 section is-medium">
 
@@ -54,7 +66,10 @@
       </main>
 
       <aside id="upgrades" class="column upgrades-container">
-        <h2 class="title">Upgrades</h2>
+        <div class="">
+          <h2 class="title">Upgrades</h2>
+          
+        </div>
         <ul id="upgrade-list" class="upgrade-list">
           <!--
             This are the upgrades available for the player.
@@ -65,10 +80,10 @@
           data-upgrade-level="0" 
           data-upgrade-type="click"
           >
-            <h3 class="is-size-3-desktop">Upgrade Click</h3>
-            <p class="is-size-4-desktop">Level: <span id="clickLevel">0</span></p>
-            <p class="is-size-4-desktop">Cost: <span id="clickUpgradeCost">25</span></p>
-            <p class="is-size-4-desktop">+1 click power/per level</p>
+            <h3 class="is-size-4-mobile">Upgrade Click</h3>
+            <p class="is-size-5-mobile">Level: <span id="clickLevel">0</span></p>
+            <p class="is-size-5-mobile">Cost: <span id="clickUpgradeCost">25</span></p>
+            <p class="is-size-5-mobile">+1 click power/per level</p>
           </li>
           <!-- Time based upgrades -->
           <li 
@@ -77,10 +92,10 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-3-desktop is-size-2-mobile">Upgrade Pond</h3>
-            <p class="is-size-4-desktop">Level: <span id="timerOneLevel">0</span></p>
-            <p class="is-size-4-desktop">Cost: <span id="timerOneCost">50</span></p>
-            <p class="is-size-5-desktop is-size-4-desktop">+0.1 points/per second per level</p>
+            <h3 class="is-size-4-mobile">Upgrade Pond</h3>
+            <p class="is-size-5-mobile">Level: <span id="timerOneLevel">0</span></p>
+            <p class="is-size-5-mobile">Cost: <span id="timerOneCost">50</span></p>
+            <p class="is-size-5-mobile">+0.1 points/per second per level</p>
           </li>
 
           <li 
@@ -89,10 +104,10 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-3-desktop is-size-2-mobile">Pond Upgrade</h3>
-            <p class="is-size-4-desktop">Level: <span id="timerTwoLevel">0</span></p>
-            <p class="is-size-4-desktop">Cost: <span id="timerTwoCost">95</span></p>
-            <p class="is-size-4-desktop">+0.5 points/per second</p>
+            <h3 class="is-size-4-mobile">Pond Upgrade</h3>
+            <p class="is-size-5-mobile">Level: <span id="timerTwoLevel">0</span></p>
+            <p class="is-size-5-mobile">Cost: <span id="timerTwoCost">95</span></p>
+            <p class="is-size-5-mobile">+0.5 points/per second</p>
           </li>
 
           <li 
@@ -101,10 +116,10 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-3-desktop is-size-2-mobile">Pond Upgrade</h3>
-            <p class="is-size-4-desktop">Level: <span id="timerThreeLevel">0</span></p>
-            <p class="is-size-4-desktop">Cost: <span id="timerThreeCost">95</span></p>
-            <p class="is-size-4-desktop">+1 points/per second</p>
+            <h3 class="is-size-4-mobile">Pond Upgrade</h3>
+            <p class="is-size-5-mobile">Level: <span id="timerThreeLevel">0</span></p>
+            <p class="is-size-5-mobile">Cost: <span id="timerThreeCost">95</span></p>
+            <p class="is-size-5-mobile">+1 points/per second</p>
           </li>
 
         </ul>
