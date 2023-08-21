@@ -67,7 +67,7 @@ body{
   color: black !important;
 }
 
-.upgrades-container {
+.container-upgrades {
   overflow: scroll;
   /* From https://css.glass */
   background: rgba(52, 52, 52, 0.52);
@@ -127,13 +127,15 @@ body{
 
 /* Mobile styling */
 @media screen and (max-width: 780px) {
-  .upgrades-container {
+  .container-upgrades {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 5em;
-    max-width: 100%;
-    max-height: 90%;
+    margin-top: 20%;
+    max-height: 82%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 90%;
   }
 
   .navbar-menu {
@@ -156,7 +158,14 @@ body{
     bottom: 2em;
     margin: 1em;
   }
+
+  /* Upgrades container */
+  .container-upgrade-title {
+    margin: 1em;
+    align-items: center;
+  }
 }
+
 /* Desktop & tablets screens */
 @media screen and (min-width: 781px) {
   

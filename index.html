@@ -66,15 +66,16 @@
         </button>
       </main>
 
+      <!-- Section holding the -->
       <aside id="upgrades" 
       class="column 
-      upgrades-container 
+      container-upgrades 
       is-hidden-mobile">
-        <div class="">
-          <h2 class="title">Upgrades</h2>
-          
+        <div class="columns is-mobile container-upgrade-title">
+          <h2 class="is-size-3-mobile column">Upgrades</h2>
+          <button id="close-upgrades" class="delete is-large column"></button>
         </div>
-        <ul id="upgrade-list" class="upgrade-list">
+        <ul id="upgrade-list" class="">
           <!--
             This are the upgrades available for the player.
             All other than the first are reveal after 
@@ -84,10 +85,10 @@
           data-upgrade-level="0" 
           data-upgrade-type="click"
           >
-            <h3 class="is-size-4-mobile">Upgrade Click</h3>
-            <p class="is-size-5-mobile">Level: <span id="clickLevel">0</span></p>
-            <p class="is-size-5-mobile">Cost: <span id="clickUpgradeCost">25</span></p>
-            <p class="is-size-5-mobile">+1 click power/per level</p>
+            <h3 class="is-size-5-mobile">Upgrade Click</h3>
+            <p class="is-size-6-mobile">Level: <span id="clickLevel">0</span></p>
+            <p class="is-size-6-mobile">Cost: <span id="clickUpgradeCost">25</span></p>
+            <p class="is-size-6-mobile">+1 click power/per level</p>
           </li>
           <!-- Time based upgrades -->
           <li 
@@ -96,10 +97,10 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-4-mobile">Upgrade Pond</h3>
-            <p class="is-size-5-mobile">Level: <span id="timerOneLevel">0</span></p>
-            <p class="is-size-5-mobile">Cost: <span id="timerOneCost">50</span></p>
-            <p class="is-size-5-mobile">+0.1 points/per second per level</p>
+            <h3 class="is-size-5-mobile">Upgrade Pond</h3>
+            <p class="is-size-6-mobile">Level: <span id="timerOneLevel">0</span></p>
+            <p class="is-size-6-mobile">Cost: <span id="timerOneCost">50</span></p>
+            <p class="is-size-6-mobile">+0.1 points/per second per level</p>
           </li>
 
           <li 
@@ -108,10 +109,10 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-4-mobile">Pond Upgrade</h3>
-            <p class="is-size-5-mobile">Level: <span id="timerTwoLevel">0</span></p>
-            <p class="is-size-5-mobile">Cost: <span id="timerTwoCost">95</span></p>
-            <p class="is-size-5-mobile">+0.5 points/per second</p>
+            <h3 class="is-size-5-mobile">Pond Upgrade</h3>
+            <p class="is-size-6-mobile">Level: <span id="timerTwoLevel">0</span></p>
+            <p class="is-size-6-mobile">Cost: <span id="timerTwoCost">95</span></p>
+            <p class="is-size-6-mobile">+0.5 points/per second</p>
           </li>
 
           <li 
@@ -120,10 +121,10 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-4-mobile">Pond Upgrade</h3>
-            <p class="is-size-5-mobile">Level: <span id="timerThreeLevel">0</span></p>
-            <p class="is-size-5-mobile">Cost: <span id="timerThreeCost">95</span></p>
-            <p class="is-size-5-mobile">+1 points/per second</p>
+            <h3 class="is-size-5-mobile">Pond Upgrade</h3>
+            <p class="is-size-6-mobile">Level: <span id="timerThreeLevel">0</span></p>
+            <p class="is-size-6-mobile">Cost: <span id="timerThreeCost">95</span></p>
+            <p class="is-size-6-mobile">+1 points/per second</p>
           </li>
 
         </ul>
