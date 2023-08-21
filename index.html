@@ -48,7 +48,7 @@
           aria-label="Click the image to gain points"
           >
         </div>
-        
+
         <!-- section holding the scores and goal-->
         <div class="container columns container-score">
           <p class="is-size-4-mobile column">
@@ -58,9 +58,18 @@
             Goal: 1,000,000
           </p>
         </div>
+
+        <!-- Upgrades button -->
+        <button id="show-upgrade" 
+        class="button is-link is-fullwidth btn-upgrades is-hidden-desktop">
+          upgrades
+        </button>
       </main>
 
-      <aside id="upgrades" class="column upgrades-container is-hidden-mobile">
+      <aside id="upgrades" 
+      class="column 
+      upgrades-container 
+      is-hidden-mobile">
         <div class="">
           <h2 class="title">Upgrades</h2>
           
@@ -121,14 +130,16 @@
       </aside>
     </div>
 
-  <!-- <footer class="footer">
+  <footer class="footer has-background-black">
     <div class="content has-text-centered">
       <p>
-        <strong>Froggy Clicker</strong> by <a href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" aria-label="Link to developer's Github page">Jhoan Trujillo</a>. 
-        2023
+        <strong class="has-text-success">Froggy Clicker</strong> by 
+        <a class="has-text-link" 
+        href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" 
+        aria-label="Link to developer's Github page">Jhoan Trujillo</a> 2023 &copy;
       </p>
     </div>
-  </footer> -->
+  </footer>
 
   <!--Scripts-->
   <script src="./assets/js/script.js"></script>

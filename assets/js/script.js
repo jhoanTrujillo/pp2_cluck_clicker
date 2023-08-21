@@ -359,6 +359,8 @@ const menus = class{
   constructor() {
     this.burgerBtn = document.querySelector("[data-target='burgerBtn']");
     this.navList = document.getElementById("nav-items");
+    this.upgradeButton = document.getElementById("show-upgrade");
+    this.upgradeList = document.getElementById("upgrades");
   }
   /**
    * Toggles the mobile menu to display the items inside the burger menu.
@@ -370,7 +372,15 @@ const menus = class{
       this.navList.classList.toggle("is-active");
     }); 
   }
-  
+  /**
+   * This will only work with mobile as the upgrade button is not visible in desktop.
+   */
+  showUpgrades() {
+    this.upgradeButton.addEventListener("click", e => {
+      e.preventDefault();
+      this.upgradeList.classList.remove("is-hidden-mobile");
+    });
+  }
   //End of class
 }
 
@@ -389,6 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Class methods for menus in the game
   navbar.toggleMenu();
+  navbar.showUpgrades();
 
   // Class methods for clicker
   froggyClicker.clickCheck();

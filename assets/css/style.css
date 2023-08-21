@@ -148,7 +148,6 @@ body{
 
   /* Score container holder */
   .container-score {
-    position: absolute;
     display: flex;
     justify-content: space-between;
     flex-direction: initial;
@@ -157,7 +156,6 @@ body{
     bottom: 2em;
     margin: 1em;
   }
-
 }
 /* Desktop & tablets screens */
 @media screen and (min-width: 781px) {
