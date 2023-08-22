@@ -171,5 +171,7 @@ body{
 
 /* Desktop & tablets screens */
 @media screen and (min-width: 781px) {
-  
+  .container-clicker {
+    width: 70%;
+  }
 }

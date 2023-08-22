@@ -7,7 +7,7 @@ Developer: Jhoan Trujillo
 
 ## Introduction 
 
-Froggy Clicker is a game inspired by the popular clicker or incremental games genre. The goal is simple: click on elements on the screen to gain points, unlock upgrades, and accumulate as many points as possible to conquer the game. Your clicking prowess will determine your success as you strategize to reach higher levels and achieve victory.
+Froggy Clicker is a game inspired by the popular clicker or incremental games genre. The goal is simple: click on image on the screen to gain points, unlock upgrades, and accumulate as points to help the little frog reach its first million. 
 
 ## Table Of Content
 
@@ -23,17 +23,19 @@ Froggy Clicker is a game inspired by the popular clicker or incremental games ge
 
 ### Wireframe
 
-The wireframe was inspired by hugely successful coockie clicker. The twist can be found in the mobile layout which is something that was design from scratch to accomodate any mobile functionality.
+The game was inspired by another famous incremental game called cookie clicker, although my project still has work to become a fully fleshout game the layout is functional and provides an easily digested game experience. If you look at the images below you will find that the initial design is a bit different from the current design and the name and theme changed at the initial stages, but remain constant ever since:
 
 #### Desktop
-![Wireframe of app in desktop]()
+![Wireframe of app in desktop](https://jhoantrujillo.github.io/pp2_froggy_clicker/Wireframe/Wireframe_desktop.png)
 
 
 #### Mobile
-![Wireframe of app in mobile]()
+![Wireframe of app in mobile](https://jhoantrujillo.github.io/pp2_froggy_clicker/Wireframe/Wireframe_mobile.png)
 
 
 ### User Stories
+
+Below you can find some of the user stories I thought off when starting to work in the game and some of the users that might be interested in playing.
 
 **User Story 1:**
 As a stressed-out college student, I want to play a clicker game during my study breaks so that I can relax and unwind for a few minutes. The simple and repetitive gameplay helps me take my mind off the complex assignments and exams, allowing me to return to my studies with renewed focus and reduced anxiety.

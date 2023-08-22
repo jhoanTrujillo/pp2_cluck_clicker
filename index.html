@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <!--Stylesheet & Bulma CSS framework -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
   
 </head>
 <body>
@@ -51,10 +51,10 @@
 
         <!-- section holding the scores and goal-->
         <div class="container columns container-score">
-          <p class="is-size-4-mobile column">
+          <p class="is-size-4-mobile is-size-2-desktop column">
             Points: <span id="score">0</span>
           </p>
-          <p class="is-size-4-mobile column">
+          <p class="is-size-4-mobile is-size-2-desktop column">
             Goal: 1,000,000
           </p>
         </div>
@@ -85,7 +85,7 @@
           data-upgrade-level="0" 
           data-upgrade-type="click"
           >
-            <h3 class="is-size-5-mobile">Upgrade Click</h3>
+            <h3 class="is-size-5-mobile">Upgrade Click <i class="fa-solid fa-arrow-pointer" style="color: #1ce358;"></i></h3>
             <p class="is-size-6-mobile">Level: <span id="clickLevel">0</span></p>
             <p class="is-size-6-mobile">Cost: <span id="clickUpgradeCost">25</span></p>
             <p class="is-size-6-mobile">+1 click power/per level</p>
@@ -97,7 +97,7 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-5-mobile">Time Upgrade # 1</h3>
+            <h3 class="is-size-5-mobile">Time Upgrade # 1 <i class="fa-solid fa-clock" style="color: #1ce358;"></i></h3>
             <p class="is-size-6-mobile">Level: <span id="timerOneLevel">0</span></p>
             <p class="is-size-6-mobile">Cost: <span id="timerOneCost">50</span></p>
             <p class="is-size-6-mobile">+0.1 points/per second per level</p>
@@ -109,7 +109,7 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-5-mobile">Time upgrade # 2</h3>
+            <h3 class="is-size-5-mobile">Time upgrade # 2 <i class="fa-solid fa-clock" style="color: #1ce358;"></i></h3>
             <p class="is-size-6-mobile">Level: <span id="timerTwoLevel">0</span></p>
             <p class="is-size-6-mobile">Cost: <span id="timerTwoCost">95</span></p>
             <p class="is-size-6-mobile">+0.5 points/per second</p>
@@ -121,7 +121,7 @@
           data-upgrade-type="timer"
           data-is-active="false"
           >
-            <h3 class="is-size-5-mobile">Time upgrade # 3</h3>
+            <h3 class="is-size-5-mobile">Time upgrade # 3 <i class="fa-solid fa-clock" style="color: #1ce358;"></i></h3>
             <p class="is-size-6-mobile">Level: <span id="timerThreeLevel">0</span></p>
             <p class="is-size-6-mobile">Cost: <span id="timerThreeCost">95</span></p>
             <p class="is-size-6-mobile">+1 points/per second</p>
@@ -144,5 +144,7 @@
 
   <!--Scripts-->
   <script src="./assets/js/script.js"></script>
+  <!-- Font Awesome Icons-->
+  <script src="https://kit.fontawesome.com/dd3b9a0c61.js" crossorigin="anonymous"></script>
 </body>
 </html>

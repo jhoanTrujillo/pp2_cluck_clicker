@@ -111,7 +111,7 @@ const clicker = class{
 
     const frogIcon = document.createElement("img");
     frogIcon.classList.add("frog-icon");
-    frogIcon.src = "https://jhoantrujillo.github.io/pp2_froggy_clicker//assets/images/green_bean_icon.svg";
+    frogIcon.src = "https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/images/green_bean_icon.svg";
     powerDisplay.appendChild(frogIcon);
 
     //Check if the position if the clicker element is clicked or touch if in touchscreen.
@@ -154,9 +154,9 @@ const clicker = class{
 
         //check for upgrade type to start logic
         if (upgradeType === "click") {
-          this.increaseClickPower()
+          this.increaseClickPower();
         } else if (upgradeType === "timer") {
-          this.upgradeTimers(e)
+          this.upgradeTimers(e);
         }    
       });
     };
@@ -167,20 +167,21 @@ const clicker = class{
    */
   increaseClickPower() {
     let score = this.score;
-    let clickUpgrade = this.clickUpgradeValues
+    let clickUpgrade = this.clickUpgradeValues;
     //Check if score is enough to upgrade and adjust level, cost and score numbers. 
     if (score >= clickUpgrade.cost) {
       clickUpgrade.level += 1;
       this.score -= clickUpgrade.cost;
       this.incremental += 1;
-      this.upgradeCostCalculator(clickUpgrade)
+      this.upgradeCostCalculator(clickUpgrade);
       this.saveToLocalStorage();
       //Add new values to the html element holding click upgrade data.
       document.getElementById("clickLevel").innerHTML = clickUpgrade.level;
       document.getElementById("clickUpgradeCost").innerHTML = clickUpgrade.cost;
       this.addScore();
+      playCroakSound();
     } else {
-      alert("Not enough flies!")
+      alert("Not enough points!");
     }
   }
   /**
@@ -250,6 +251,8 @@ const clicker = class{
 
     this.updateUpgradeValues(valueFromTimersDataArray);
     valueFromTimersDataArray.bonus += 0.1;
+
+    playCroakSound();
   }
   /**
    * Update the values of a timer
@@ -296,6 +299,10 @@ const clicker = class{
   
       setTimeout(updateScore, 1000); // Initial call to start the process
     }
+  }
+  playCroakSound() {
+    const croak = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/frog_croak.mp3");
+    croak.play();
   }
   /**
    * Loads the data store in the local storage to then repopulate.
