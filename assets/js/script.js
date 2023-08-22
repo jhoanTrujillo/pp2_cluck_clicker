@@ -111,7 +111,7 @@ const clicker = class{
 
     const frogIcon = document.createElement("img");
     frogIcon.classList.add("frog-icon");
-    frogIcon.src = "./assets/images/green_bean_icon.svg";
+    frogIcon.src = "https://jhoantrujillo.github.io/pp2_froggy_clicker//assets/images/green_bean_icon.svg";
     powerDisplay.appendChild(frogIcon);
 
     //Check if the position if the clicker element is clicked or touch if in touchscreen.
@@ -258,7 +258,6 @@ const clicker = class{
    */
   updateUpgradeValues(timerObject) {
     timerObject.level += 1;
-    console.log("Reduce score by: ", timerObject.cost);
     this.score -= timerObject.cost;
     this.scoreElement.innerHTML = this.score;
 
