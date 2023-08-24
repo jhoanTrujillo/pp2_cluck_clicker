@@ -244,7 +244,7 @@ const clicker = class{
     }
 
     playCroakSound();
-    
+
     if (valueFromTimersDataArray.isActive != true) {
       valueFromTimersDataArray.isActive = true;
       timerElement.dataset.isActive = valueFromTimersDataArray.isActive;
@@ -302,7 +302,7 @@ const clicker = class{
     }
   }
   playCroakSound() {
-    const croak = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/frog_croak.mp3");
+    let croak = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/frog_croak.mp3");
     croak.play();
   }
   /**
