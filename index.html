@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Froggy Clicker</title>
+
   <!-- Google Font import-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  
   <!--Stylesheet & Bulma CSS framework -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   
 </head>
 <body>
@@ -72,10 +74,10 @@
       container-upgrades 
       is-hidden-mobile">
         <div class="columns is-mobile container-upgrade-title">
-          <h2 class="is-size-3-mobile column">Upgrades</h2>
-          <button id="close-upgrades" class="delete is-large column"></button>
+          <h2 class="is-size-3-mobile is-size-3-desktop column">Upgrades</h2>
+          <button id="close-upgrades" class="delete is-large column is-hidden-desktop"></button>
         </div>
-        <ul id="upgrade-list" class="">
+        <ul id="upgrade-list">
           <!--
             This are the upgrades available for the player.
             All other than the first are reveal after 

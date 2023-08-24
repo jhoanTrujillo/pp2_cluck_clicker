@@ -243,6 +243,8 @@ const clicker = class{
       return;
     }
 
+    playCroakSound();
+    
     if (valueFromTimersDataArray.isActive != true) {
       valueFromTimersDataArray.isActive = true;
       timerElement.dataset.isActive = valueFromTimersDataArray.isActive;
@@ -252,7 +254,6 @@ const clicker = class{
     this.updateUpgradeValues(valueFromTimersDataArray);
     valueFromTimersDataArray.bonus += 0.1;
 
-    playCroakSound();
   }
   /**
    * Update the values of a timer

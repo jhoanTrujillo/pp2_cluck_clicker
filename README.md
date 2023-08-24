@@ -3,7 +3,7 @@ Developer: Jhoan Trujillo
 
 ![Responsive test image for the website goes here]()
 
-[Link to deploy version]().
+[Link to deploy version]( https://jhoantrujillo.github.io/pp2_froggy_clicker/).
 
 ## Introduction 
 
