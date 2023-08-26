@@ -20,12 +20,12 @@ const init = () => {
  */
 const clicker = class{
   constructor(clickerElement, scoreElement, upgradeList) {
-    /* Score tracking variables */
+    // Score tracking variables 
     this.score = 0;
     this.incremental = 1;
     this.goal = 1000000;
 
-    /* Objects holding the upgrade values */
+    // Objects holding the upgrade values 
     this.clickUpgradeValues = {
       cost: 25,
       level : 0
@@ -54,14 +54,18 @@ const clicker = class{
       }
     ]
     
-    /* Variables for score container and clicker element itself */
+    // Variables for score container and clicker element itself 
     this.clickerElement = clickerElement;  
     this.scoreElement = scoreElement;
     this.upgradeList = upgradeList;
 
-    /* */
+    //Controls of audio should be played.
+    this.isAudioActive = true;
+
+    // Calls function to loadValues from local storage when game starts.
     this.loadFromLocalStorage();
   }
+
   /**
    * adds score value to scoreElement.
    * 
@@ -69,6 +73,7 @@ const clicker = class{
   addScore() {
     this.scoreElement.innerHTML = Math.round((this.score + Number.EPSILON) * 100) / 100;
   }
+
   /**
    * Increase the score.
    * Calls the add score method.
@@ -80,6 +85,7 @@ const clicker = class{
     this.saveToLocalStorage();
     this.addScore();
   }
+
   /**
   * Handles clicks on the HTML element set as the clicker.
   * Calls the increaseScore method. 
@@ -92,6 +98,7 @@ const clicker = class{
       this.unlockUpgrade();
     });
   }
+
   /**
    * Adds a span with an animation above the clicker element to display
    * The amount earn by each click 
@@ -179,7 +186,7 @@ const clicker = class{
       document.getElementById("clickLevel").innerHTML = clickUpgrade.level;
       document.getElementById("clickUpgradeCost").innerHTML = clickUpgrade.cost;
       this.addScore();
-      playCroakSound();
+      this.playCroakSound();
     } else {
       alert("Not enough points!");
     }
@@ -243,7 +250,7 @@ const clicker = class{
       return;
     }
 
-    playCroakSound();
+    this.playCroakSound();
 
     if (valueFromTimersDataArray.isActive != true) {
       valueFromTimersDataArray.isActive = true;
@@ -301,9 +308,43 @@ const clicker = class{
       setTimeout(updateScore, 1000); // Initial call to start the process
     }
   }
+  /**
+   * Play a croak sound. This is applied in when an upgrade is clicked.
+   */
   playCroakSound() {
-    let croak = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/frog_croak.mp3");
-    croak.play();
+    const croak = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/frog_croak.mp3");
+
+    //Will only play audio if the isAudioActive variable is true.
+    if (this.isAudioActive) {
+      croak.play();
+    }
+  }
+  /**
+   * Background music controller. This gets called with the other main functions
+   */
+  playBackgroundMusic() {
+    const backgroundMusic = new Audio("./assets/sounds/background_lofi.webm")
+    
+    //Will only play audio if the isAudioActive variable is true.
+    if (this.isAudioActive) {
+      backgroundMusic.play();
+    } else {
+      backgroundMusic.pause();
+    }
+  }
+  muteSound() {
+    const audioBtn = document.getElementById("audio-btn");
+
+    //Adding event listener to the audio button 
+    audioBtn.addEventListener('click', (evt) => {
+      if (this.isAudioActive) {
+        this.isAudioActive = false;
+        this.playBackgroundMusic();
+      } else {
+        this.isAudioActive = true;
+        this.playBackgroundMusic();
+      }
+    })
   }
   /**
    * Loads the data store in the local storage to then repopulate.
@@ -382,6 +423,7 @@ const menus = class{
   }
   /**
    * This will only work with mobile as the upgrade button is not visible in desktop.
+   * neither does the closing button in the upgrade list.
    */
   toggleUpgradesContainer() {
     this.upgradeButton.addEventListener("click", e => {
@@ -415,6 +457,8 @@ document.addEventListener("DOMContentLoaded", () => {
   navbar.toggleUpgradesContainer();
 
   // Class methods for clicker
+  froggyClicker.playBackgroundMusic();
+  froggyClicker.muteSound();
   froggyClicker.clickCheck();
   froggyClicker.upgradeCheck();
   });

@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Froggy Clicker</title>
+  <meta name="keywords" content="incremental, game, frog, clicker, fun, clicker game">
+  
+  <!-- Favicon-->
+  <link rel="icon" type="image/png" href="https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/images/green_bean_icon.svg" sizes="32x32">
+
 
   <!-- Google Font import-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +42,7 @@
       <div class="navbar-menu navbar-end has-background-black" id="nav-items">
         <a href="https://jhoantrujillo.github.io/pp2_froggy_clicker/rules.html" class="navbar-item has-text-light">rules</a>
         <a href="https://jhoantrujillo.github.io/pp2_froggy_clicker/contact.html" class="navbar-item has-text-light">contact</a>
+        <a href="#" id="audio-btn" class="navbar-item has-text-light"><i class="fa-solid fa-headphones" style="color: hsl(348, 100%, 61%);"></i></a>
       </div>
     </nav>
 
@@ -46,7 +52,7 @@
           <img 
           src="https://jhoantrujillo.github.io/pp2_froggy_clicker//assets/images/mr_green_bean.webp" 
           alt="A picture of a little green frog in a pond with purple clouds"
-          class="rotate-animation"
+          class="rotate-animation clicker-image"
           aria-label="Click the image to gain points"
           >
         </div>
@@ -54,7 +60,15 @@
         <!-- section holding the scores and goal-->
         <div class="container columns container-score">
           <p class="is-size-4-mobile is-size-3-desktop column">
-            Points: <span id="score">0</span>
+            Points: 
+            <!-- 
+              Added BR to keep a consistent styling.
+              Without it the score keeps moving up and down to occupy
+              the line above when the count is low. This is due to the 
+              fact that spans are inline elements in HTML.
+            -->
+            <br> 
+            <span id="score">0</span>
           </p>
           <p class="is-size-4-mobile is-size-3-desktop column">
             Goal: 1,000,000
@@ -134,13 +148,18 @@
     </div>
 
   <footer class="footer has-background-black">
-    <div class="content has-text-centered">
-      <p>
-        <strong class="has-text-success">Froggy Clicker</strong> by 
-        <a class="has-text-link" 
-        href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" 
-        aria-label="Link to developer's Github page">Jhoan Trujillo</a> 2023 &copy;
-      </p>
+    <div class="content has-text-centered column">
+      <div columns>
+        <p>
+          <strong class="has-text-success">Froggy Clicker</strong> by 
+          <a class="has-text-link" 
+          href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" 
+          aria-label="Link to developer's Github page">Jhoan Trujillo</a> 2023 &copy;
+        </p>
+      </div>
+      <div class="columns">
+
+      </div>
     </div>
   </footer>
 

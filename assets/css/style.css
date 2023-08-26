@@ -124,6 +124,16 @@ body{
   user-select: none; /* Standard syntax */
 }
 
+.clicker-image {
+  /* stopping image from becoming draggable */
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 /* Mobile styling */
 @media screen and (max-width: 860px) {
   .container-upgrades {
@@ -179,7 +189,7 @@ body{
   }
 
   .container-upgrades {
-    overflow-y: hidden;
+    overflow: hidden;
     max-height: 70vh;
     min-height: 60vh;
   }
@@ -193,6 +203,8 @@ body{
     padding: 1em;
     overflow-y: scroll;
     height: 90%;
+    scrollbar-color: var(--thumbBG) black;
   }
+
 
 }
