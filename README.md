@@ -9,6 +9,8 @@ Developer: Jhoan Trujillo
 
 Froggy Clicker is a game inspired by the popular clicker or incremental games genre. The goal is simple: click on image on the screen to gain points, unlock upgrades, and accumulate as points to help the little frog reach its first million. 
 
+My personal goal for this project is to create a clicker game framework that anybody can easily copy and utilize. At the moment, the code is also
+
 ## Table Of Content
 
 1. UX/UI
@@ -47,6 +49,8 @@ As a commuter on long train rides, I want to play a clicker game on my smartphon
 As a competitive individual, I want to play a clicker game that offers leaderboard functionality so that I can compete with my friends and prove my tapping skills. Participating in friendly competitions and comparing my progress with others adds an extra layer of motivation and excitement to the game. The constant drive to climb the leaderboards and outperform my peers keeps me coming back for more clicks.
 
 ## 2. Technologies
+
+Below you can see more context regarding languages and frameworks used. 
 
 #### Languages
 

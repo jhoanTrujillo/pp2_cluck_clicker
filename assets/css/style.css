@@ -51,30 +51,46 @@ h3,
 h4, 
 h5,
 p {
-  color: var(--high-contrast) !important;
+  color: var(--high-contrast);
 }
 
 body{
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
+  overflow-x: hidden;
 }
 
+/* General navigation styling*/
 
+/* Score styling*/
+.score {
+  font-weight: 700;
+}
 
-.navbar-item:hover {
-  color: black !important;
+/* Section handling the upgrade container styling*/
+.upgrade-list * {
+  color: hsl(0, 0%, 21%);
 }
 
 .container-upgrades {
-  overflow: scroll;
   /* From https://css.glass */
-  background: rgba(52, 52, 52, 0.52);
+  background: rgba(52, 52, 52);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15.5px);
   -webkit-backdrop-filter: blur(15.5px);
   border: 1px solid rgba(52, 52, 52, 1);
+}
+
+.upgrade-list__scroll {
+  overflow-y: scroll;
+  max-height: 80%;
+}
+
+/* Using the webkit scrollbar pseudo selector */
+.upgrade-list__scroll::-webkit-scrollbar {
+  scrollbar-color: black white;
 }
 
 .upgrade { 
@@ -112,12 +128,15 @@ body{
 
 .frog-icon {
   width: 50%;
+  /*Prevent selection of element when double clicked*/
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .container-clicker {
   border-radius: 50%;
   margin: auto;
-  overflow: hidden;
   /*Prevent selection of element when double clicked*/
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -125,13 +144,14 @@ body{
 }
 
 .clicker-image {
+  border-radius: 60%;
   /* stopping image from becoming draggable */
-  user-drag: none; 
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  pointer-events: none;
 }
 
 /* Mobile styling */
@@ -141,7 +161,8 @@ body{
     top: 0;
     right: 0;
     margin-top: 20%;
-    max-height: 82%;
+    max-height: 80%;
+    height: 40rem;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     width: 90%;
@@ -174,6 +195,15 @@ body{
     margin: 1em;
     align-items: center;
   }
+
+  .upgrade-list {
+    padding: 1em;
+    height: 90%;
+  }
+
+  .upgrade-list__scroll {
+    overflow-y: scroll;
+  }
 }
 
 /* Desktop & tablets screens */
@@ -189,7 +219,6 @@ body{
   }
 
   .container-upgrades {
-    overflow: hidden;
     max-height: 70vh;
     min-height: 60vh;
   }
@@ -199,12 +228,8 @@ body{
     padding: 1em;
   }
   
-  #upgrade-list {
+  .upgrade-list {
     padding: 1em;
-    overflow-y: scroll;
     height: 90%;
-    scrollbar-color: var(--thumbBG) black;
   }
-
-
 }

@@ -18,7 +18,7 @@
   
   <!--Stylesheet & Bulma CSS framework -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
   
 </head>
 <body>
@@ -68,12 +68,12 @@
               fact that spans are inline elements in HTML.
             -->
             <br> 
-            <span id="score">0</span>
+            <span id="score" class="score">0</span>
           </p>
           <p class="is-size-4-mobile is-size-3-desktop column">
             Goal:
             <br> 
-            <span>1,000,000</span>
+            <span class="score">1,000,000</span>
           </p>
         </div>
 
@@ -93,59 +93,61 @@
           <h2 class="is-size-3-mobile is-size-3-desktop column">Upgrades</h2>
           <button id="close-upgrades" class="delete is-large column is-hidden-desktop"></button>
         </div>
-        <ul id="upgrade-list">
-          <!--
-            This are the upgrades available for the player.
-            All other than the first are reveal after 
-          -->
-          <li 
-          class="box upgrade" 
-          data-upgrade-level="0" 
-          data-upgrade-type="click"
-          >
-            <h3 class="is-size-5-mobile">Upgrade Click <i class="fa-solid fa-arrow-pointer" style="color: #1ce358;"></i></h3>
-            <p class="is-size-6-mobile">Level: <span id="clickLevel">0</span></p>
-            <p class="is-size-6-mobile">Cost: <span id="clickUpgradeCost">25</span></p>
-            <p class="is-size-6-mobile">+1 click power/per level</p>
-          </li>
-          <!-- Time based upgrades -->
-          <li 
-          class="box upgrade is-hidden" 
-          data-title="timerOne"
-          data-upgrade-type="timer"
-          data-is-active="false"
-          >
-            <h3 class="is-size-5-mobile">Time Upgrade # 1 <i class="fa-solid fa-clock" style="color: #1ce358;"></i></h3>
-            <p class="is-size-6-mobile">Level: <span id="timerOneLevel">0</span></p>
-            <p class="is-size-6-mobile">Cost: <span id="timerOneCost">50</span></p>
-            <p class="is-size-6-mobile">+0.1 points/per second per level</p>
-          </li>
+        <div class="upgrade-list__scroll">
+          <ul id="upgrade-list" class="upgrade-list has-text-dark">
+            <!--
+              This are the upgrades available for the player.
+              All other than the first are reveal after 
+            -->
+            <li 
+            class="box upgrade has-background-success" 
+            data-upgrade-level="0" 
+            data-upgrade-type="click"
+            >
+              <h3 class="is-size-5-mobile">Upgrade Click <i class="fa-solid fa-arrow-pointer" style="color: hsl(348, 100%, 61%);;"></i></h3>
+              <p class="is-size-6-mobile">Level: <span id="clickLevel">0</span></p>
+              <p class="is-size-6-mobile">Cost: <span id="clickUpgradeCost">25</span></p>
+              <p class="is-size-6-mobile">+1 click power/per level</p>
+            </li>
+            <!-- Time based upgrades -->
+            <li 
+            class="box upgrade has-background-success is-hidden" 
+            data-title="timerOne"
+            data-upgrade-type="timer"
+            data-is-active="false"
+            >
+              <h3 class="is-size-5-mobile">Time Upgrade # 1 <i class="fa-solid fa-clock" style="color: hsl(348, 100%, 61%);;"></i></h3>
+              <p class="is-size-6-mobile">Level: <span id="timerOneLevel">0</span></p>
+              <p class="is-size-6-mobile">Cost: <span id="timerOneCost">50</span></p>
+              <p class="is-size-6-mobile">+0.1 points/per second per level</p>
+            </li>
 
-          <li 
-          class="box upgrade is-hidden" 
-          data-title="timerTwo"
-          data-upgrade-type="timer"
-          data-is-active="false"
-          >
-            <h3 class="is-size-5-mobile">Time upgrade # 2 <i class="fa-solid fa-clock" style="color: #1ce358;"></i></h3>
-            <p class="is-size-6-mobile">Level: <span id="timerTwoLevel">0</span></p>
-            <p class="is-size-6-mobile">Cost: <span id="timerTwoCost">95</span></p>
-            <p class="is-size-6-mobile">+0.5 points/per second</p>
-          </li>
+            <li 
+            class="box upgrade has-background-success is-hidden" 
+            data-title="timerTwo"
+            data-upgrade-type="timer"
+            data-is-active="false"
+            >
+              <h3 class="is-size-5-mobile">Time upgrade # 2 <i class="fa-solid fa-clock" style="color: hsl(348, 100%, 61%);;"></i></h3>
+              <p class="is-size-6-mobile">Level: <span id="timerTwoLevel">0</span></p>
+              <p class="is-size-6-mobile">Cost: <span id="timerTwoCost">95</span></p>
+              <p class="is-size-6-mobile">+0.5 points/per second</p>
+            </li>
 
-          <li 
-          class="box upgrade is-hidden" 
-          data-title="timerThree"
-          data-upgrade-type="timer"
-          data-is-active="false"
-          >
-            <h3 class="is-size-5-mobile">Time upgrade # 3 <i class="fa-solid fa-clock" style="color: #1ce358;"></i></h3>
-            <p class="is-size-6-mobile">Level: <span id="timerThreeLevel">0</span></p>
-            <p class="is-size-6-mobile">Cost: <span id="timerThreeCost">95</span></p>
-            <p class="is-size-6-mobile">+1 points/per second</p>
-          </li>
-
-        </ul>
+            <li 
+            class="box upgrade has-background-success is-hidden" 
+            data-title="timerThree"
+            data-upgrade-type="timer"
+            data-is-active="false"
+            >
+              <h3 class="is-size-5-mobile">Time upgrade # 3 <i class="fa-solid fa-clock" style="color: hsl(348, 100%, 61%);;"></i></h3>
+              <p class="is-size-6-mobile">Level: <span id="timerThreeLevel">0</span></p>
+              <p class="is-size-6-mobile">Cost: <span id="timerThreeCost">95</span></p>
+              <p class="is-size-6-mobile">+1 points/per second</p>
+            </li>
+            <!-- End of upgrade list -->
+          </ul>
+        </div>
       </aside>
     </div>
 

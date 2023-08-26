@@ -188,7 +188,7 @@ const clicker = class{
       this.addScore();
       this.playCroakSound();
     } else {
-      alert("Not enough points!");
+      alert("Not enough points! Keep clicking.");
     }
   }
   /**
@@ -246,7 +246,7 @@ const clicker = class{
   updateTimersDataValues(timerElement, valueFromTimersDataArray) {
     //Check if score is enough to purchase upgrade. If not, push message.
     if (this.score <  valueFromTimersDataArray.cost) {
-      alert("insuficient Points");
+      alert("Not enough points! Keep clicking");
       return;
     }
 
