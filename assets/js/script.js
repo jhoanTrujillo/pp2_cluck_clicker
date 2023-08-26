@@ -323,7 +323,7 @@ const clicker = class{
    * Background music controller. This gets called with the other main functions
    */
   playBackgroundMusic() {
-    const backgroundMusic = new Audio("./assets/sounds/background_lofi.webm")
+    let backgroundMusic = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/background_lofi.webm")
     
     //Will only play audio if the isAudioActive variable is true.
     if (this.isAudioActive) {
