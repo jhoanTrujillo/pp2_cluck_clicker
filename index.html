@@ -89,7 +89,7 @@
         <!-- Upgrades button -->
         <div class="upgrade-button__container is-hidden-desktop">
           <div id="show-upgrade" 
-          class="is-link is-fullwidth btn-upgrades is-hidden-desktop has-background-primary upgrade-button column">    
+          class="is-link is-fullwidth is-hidden-desktop has-background-primary upgrade-button column">    
             <i class="fa-solid fa-plus has-text-light"></i>
           </div>
           <p class="column"><strong class="has-text-light">upgrades</strong></p>
@@ -99,12 +99,14 @@
       <!-- Section holding the upgrade boxes-->
       <aside id="upgrades" 
       class="column 
-      container-upgrades 
+      upgrades__container
       is-hidden-mobile
       is-hidden-tablet">
         <div class="columns is-mobile container-upgrade__title">
-          <h2 class="is-size-3-mobile is-size-3-desktop is-size-2-tablet column has-text-color-light">Upgrades</h2>
-          <button id="close-upgrades" class="delete is-large column is-hidden-desktop"></button>
+          <h2 class="is-size-3-mobile is-size-3-desktop is-size-2-tablet column has-text-color-light">
+            Upgrades
+          </h2>
+          <button id="close-upgrades" class="delete is-large column is-hidden-desktop "></button>
         </div>
         <div class="upgrade-list__scroll">
           <ul id="upgrade-list" class="upgrade-list has-text-light">
@@ -122,7 +124,11 @@
               <p class="is-size-6-mobile">Cost: <span id="clickUpgradeCost">25</span></p>
               <p class="is-size-6-mobile">+1 click power/per level</p>
             </li>
-            <!-- Time based upgrades -->
+            <!-- 
+              Time based upgrades.
+              On a side note, in the future this will be change to make the script 
+              add the upgrades based on different information.
+            -->
             <li 
             class="box upgrade has-background-info-light has-text-info is-hidden" 
             data-title="timerOne"
@@ -191,7 +197,7 @@
   </footer>
 
   <!--Scripts-->
-  <script src="./assets/js/script.js"></script>
+  <script src="https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/js/script.js"></script>
   <!-- Font Awesome Icons-->
   <script src="https://kit.fontawesome.com/dd3b9a0c61.js" crossorigin="anonymous"></script>
 </body>

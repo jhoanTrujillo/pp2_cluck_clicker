@@ -73,7 +73,7 @@ body{
   color: hsl(0, 0%, 21%);
 }
 
-.container-upgrades {
+.upgrades__container{
   /* From https://css.glass */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   background: rgba(97, 84, 84, 0.39);
@@ -190,7 +190,7 @@ body{
   }
 
   /* Mobile upgrade container style*/
-  .container-upgrades {
+  .upgrades__container{
     position: absolute;
     top: 0;
     right: 0;
@@ -244,7 +244,7 @@ body{
   }
 
   /* upgrade section desktop*/
-  .container-upgrades {
+  .upgrades__container{
     max-height: 100vh;
     min-height: 60vh;
     padding-top: 2em;
@@ -301,7 +301,7 @@ body{
   }
 
   /*upgrade container tablet style*/
-  .container-upgrades {
+  .upgrades__container{
     position: absolute;
     top: 0;
     right: 0;
@@ -310,5 +310,9 @@ body{
     height: 100%;
     max-height: 90%;
     width: 100%;
+  }
+
+  .container-upgrade__title {
+    margin: 3rem;
   }
 }
