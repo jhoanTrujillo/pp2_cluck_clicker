@@ -269,7 +269,7 @@ body{
 }
 
 /* Tablet Styling */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1023px) {
 
   /* Main section element styling - tablet */
   .main__container {
@@ -280,6 +280,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15% ;
   }
 
   /* Clicker image and container style and size*/
