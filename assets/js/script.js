@@ -436,13 +436,13 @@ const menus = class{
   toggleUpgradesContainer() {
     this.upgradeButton.addEventListener("click", e => {
       e.preventDefault();
-      this.upgradeList.classList.remove("is-hidden-mobile-only");
+      this.upgradeList.classList.remove("is-hidden-mobile");
       this.upgradeList.classList.remove("is-hidden-tablet-only");
     });
 
     this.closeUpgradeButton.addEventListener("click", e => {
       e.preventDefault();
-      this.upgradeList.classList.add("is-hidden-mobile-only");
+      this.upgradeList.classList.add("is-hidden-mobile");
       this.upgradeList.classList.add("is-hidden-tablet-only")
     });
   }
