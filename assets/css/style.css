@@ -135,14 +135,13 @@ body{
 
 .main__clicker {
   border-radius: 50%;
-  margin: auto;
   /*Prevent selection of element when double clicked*/
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
 
-.clicker--image {
+.clicker__image {
   border-radius: 60%;
   /* stopping image from becoming draggable */
   user-select: none;
@@ -281,6 +280,18 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  /* Clicker image and container style and size*/
+  .main__clicker {
+    flex-grow: 3;
+    width: 80%;
+  }
+
+  .clicker__image {
+    width: 35rem;
+    max-width: 80%;
+    padding: 1rem;
   }
 
   .container-score {
