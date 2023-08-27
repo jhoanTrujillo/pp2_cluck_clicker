@@ -61,7 +61,7 @@ const clicker = class{
 
     //Controls of audio should be played.
     this.isAudioActive = true;
-
+    this.backgroundMusic = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/background_lofi.webm");
     // Calls function to loadValues from local storage when game starts.
     this.loadFromLocalStorage();
   }
@@ -263,7 +263,7 @@ const clicker = class{
 
   }
   /**
-   * Update the values of a timer
+   * Updates the values of a timer
    * 
    * @param {*} timerObject - An object with a level and cost value.
    */
@@ -316,6 +316,7 @@ const clicker = class{
 
     //Will only play audio if the isAudioActive variable is true.
     if (this.isAudioActive) {
+      croak.volume = 0.5;
       croak.play();
     }
   }
@@ -323,28 +324,35 @@ const clicker = class{
    * Background music controller. This gets called with the other main functions
    */
   playBackgroundMusic() {
-    let backgroundMusic = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/background_lofi.webm")
+    let backgroundMusic = this.backgroundMusic;
     
     //Will only play audio if the isAudioActive variable is true.
     if (this.isAudioActive) {
       backgroundMusic.play();
-    } else {
-      backgroundMusic.pause();
-    }
+    } 
+
+    backgroundMusic.pause();
   }
   muteSound() {
-    const audioBtn = document.getElementById("audio-btn");
+    const audioToggler = document.getElementById("audio-toggle");
 
-    //Adding event listener to the audio button 
-    audioBtn.addEventListener('click', (evt) => {
-      if (this.isAudioActive) {
+    //Add event listener to the button that will toggle the audio.
+    audioToggler.addEventListener('click', (e) => {
+      e.preventDefault();
+      //Checks if isAudioActive is true and if it is it disables the audio
+      if (this.isAudioActive === true) {
         this.isAudioActive = false;
+        e.target.children[0].classList.toggle("is-hidden"); 
+        e.target.children[1].classList.toggle("is-hidden");
         this.playBackgroundMusic();
       } else {
         this.isAudioActive = true;
+        e.target.children[0].classList.toggle("is-hidden"); 
+        e.target.children[1].classList.toggle("is-hidden");
         this.playBackgroundMusic();
       }
-    })
+
+    });
   }
   /**
    * Loads the data store in the local storage to then repopulate.
@@ -429,11 +437,13 @@ const menus = class{
     this.upgradeButton.addEventListener("click", e => {
       e.preventDefault();
       this.upgradeList.classList.remove("is-hidden-mobile");
+      this.upgradeList.classList.remove("is-hidden-tablet");
     });
 
     this.closeUpgradeButton.addEventListener("click", e => {
       e.preventDefault();
       this.upgradeList.classList.add("is-hidden-mobile");
+      this.upgradeList.classList.add("is-hidden-tablet")
     });
   }
   //End of class
@@ -457,10 +467,9 @@ document.addEventListener("DOMContentLoaded", () => {
   navbar.toggleUpgradesContainer();
 
   // Class methods for clicker
-  froggyClicker.playBackgroundMusic();
-  froggyClicker.muteSound();
   froggyClicker.clickCheck();
   froggyClicker.upgradeCheck();
+  froggyClicker.muteSound();
   });
 }
 
