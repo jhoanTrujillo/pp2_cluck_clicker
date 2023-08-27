@@ -133,7 +133,7 @@ body{
   user-select: none; /* Standard syntax */
 }
 
-.container-clicker {
+.main__clicker {
   border-radius: 50%;
   margin: auto;
   /*Prevent selection of element when double clicked*/
@@ -142,7 +142,7 @@ body{
   user-select: none; /* Standard syntax */
 }
 
-.clicker-image {
+.clicker--image {
   border-radius: 60%;
   /* stopping image from becoming draggable */
   user-select: none;
@@ -172,7 +172,7 @@ body{
 }
 
 /* Mobile styling */
-@media screen and (max-width: 759px) {
+@media screen and (max-width: 768px) {
   /* Navbar styling in mobile*/
   .navbar-menu {
     position: absolute;
@@ -180,11 +180,11 @@ body{
   } 
 
   /* Mobile main container elements style */
-  .container-main {
-    padding: 3em 1.5em 1em 1.5em;
+  .container__main {
+    padding: 0 1.5em 0 1.5em;
   }
 
-  .container-clicker {
+  .main__clicker {
     width: 90%;
     margin: 3em auto;
     text-align: center;
@@ -234,19 +234,28 @@ body{
 
 /* Desktop styling */
 @media screen and (min-width: 1024px) {
-  .container-main {
+  .container__main {
     height: 80%;
-    margin: 1em 3em;
+    margin: auto 0 !important;
   }
 
-  .container-clicker {
+  .main__clicker {
     width: 60%;
-    margin: .5em auto;
+    margin: 3em auto .5em;
   }
 
+  /* upgrade section desktop*/
   .container-upgrades {
-    max-height: 70vh;
+    max-height: 100vh;
     min-height: 60vh;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border: none;
+    border-left: 1px solid black;
+  }
+
+  .upgrade-list__scroll {
+    max-height: 100%;
   }
 
   .container-score {
@@ -261,13 +270,34 @@ body{
 }
 
 /* Tablet Styling */
-@media screen and (min-width: 760px and max-width: 1024px) {
-  div.container-main {
-    margin: 0 auto;
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  /* Main section element styling - tablet */
+  .main__container {
+    margin-top: 10rem;
+    text-align: center;
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container-score {
+    gap: 5rem;
+    text-align: left;
+    flex-grow: 1;
   }
 
   /*upgrade container tablet style*/
   .container-upgrades {
-
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    height: 100%;
+    max-height: 90%;
+    width: 100%;
   }
 }

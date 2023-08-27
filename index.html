@@ -18,7 +18,7 @@
   
   <!--Stylesheet & Bulma CSS framework -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/css/style.css">
+  <link rel="stylesheet" href=./assets/css/style.css>
 
   
   
@@ -26,8 +26,8 @@
 <body>
   
     <nav class="navbar has-background-dark">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://jhoantrujillo.github.io/pp2_froggy_clicker/index.html">
+      <div class="navbar-brand ">
+        <a class="navbar-item is-size-4-tablet is-size-3-desktop is-size-3-mobile" href="https://jhoantrujillo.github.io/pp2_froggy_clicker/index.html">
           <h1 class="is-size-4-mobile">Froggy Clicker</h1>
           
         </a>
@@ -52,13 +52,13 @@
     </nav>
 
     <!-- Section contains all the clicker score and image-->
-    <div class="columns is-desktop">
-      <main class="column is-8 section container-main">
-        <div id="clicker" class="container-clicker">
+    <div class="columns is-desktop container__main">
+      <main class="column is-8-desktop section main__container">
+        <div id="clicker" class="main__clicker">
           <img 
           src="https://jhoantrujillo.github.io/pp2_froggy_clicker//assets/images/mr_green_bean.webp" 
           alt="A picture of a little green frog in a pond with purple clouds"
-          class="rotate-animation clicker-image"
+          class="rotate-animation clicker--image"
           aria-label="Click the image to gain points"
           loading="lazy"
           width="400px"
@@ -67,7 +67,7 @@
         </div>
 
         <!-- section holding the scores and goal-->
-        <div class="container columns container-score">
+        <div class="container columns container-score section">
           <p class="is-size-4-mobile is-size-3-tablet is-size-3-desktop column">
             Points: 
             <!-- 
@@ -100,9 +100,10 @@
       <aside id="upgrades" 
       class="column 
       container-upgrades 
-      is-hidden-mobile">
+      is-hidden-mobile
+      is-hidden-tablet">
         <div class="columns is-mobile container-upgrade__title">
-          <h2 class="is-size-3-mobile is-size-3-desktop column has-text-color-light">Upgrades</h2>
+          <h2 class="is-size-3-mobile is-size-3-desktop is-size-2-tablet column has-text-color-light">Upgrades</h2>
           <button id="close-upgrades" class="delete is-large column is-hidden-desktop"></button>
         </div>
         <div class="upgrade-list__scroll">
@@ -165,17 +166,26 @@
   
   <!---->
   <footer class="footer has-background-dark">
-    <div class="content has-text-centered column">
-      <div columns>
+    <div class="content has-text-centered columns">
+      <div class="column">
         <p>
-          <strong class="has-text-success">Froggy Clicker</strong> by 
-          <a class="has-text-link" 
-          href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" 
-          aria-label="Link to Github page">Jhoan Trujillo</a> 2023 &copy;
+          <strong class="has-text-primary">Froggy Clicker</strong> by Jhoan Trujillo 2023 &copy;
         </p>
       </div>
-      <div class="columns">
-
+      <div class="column columns">
+        <a href="https://github.com/jhoanTrujillo/pp2_froggy_clicker" 
+        aria-label="Link to Github page"
+        rel="noreferrer noopener"
+        class="column">
+          <i class="fa-brands fa-github has-text-primary is-size-3-desktop is-size-3-tablet is-size-4-mobile"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/jhoan-trujillo-92b03517b" 
+        aria-label="Link to linkedin page"
+        target="_blank"
+        rel="noreferrer noopener"
+        class="column">
+          <i class="fa-brands fa-linkedin has-text-primary is-size-3-desktop is-size-3-tablet is-size-4-mobile"></i>
+        </a>
       </div>
     </div>
   </footer>
