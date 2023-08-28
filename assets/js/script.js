@@ -411,14 +411,42 @@ const clicker = class{
    * Class that read if the score is equal or higher than the goal
    * Then makes player win the game displaying animation.
    */
-  victory() {
+  function victory() {
     const goal = this.goal;
     const currentPoints = this.score;
 
     if (currentPoints >= goal) {
-      
+        // Display Modal
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h2>Congratulations, you are the richest frog!</h2>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Add Confetti Effect
+        const confettiContainer = document.createElement('div');
+        confettiContainer.classList.add('confetti-container');
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            confetti.style.animationDelay = `${Math.random() * 2}s`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            confettiContainer.appendChild(confetti);
+        }
+        document.body.appendChild(confettiContainer);
+
+        // Remove Modal and Confetti after a delay
+        setTimeout(() => {
+            modal.remove();
+            confettiContainer.remove();
+        }, 5000);
     }
-  }
+}
   //End of class
 }
 

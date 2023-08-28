@@ -53,7 +53,7 @@ Below you can see more context regarding languages and frameworks used.
 
 #### Languages
 
-This project uses three languages. The data/score of the game gets handle via Javascript which can have issues with performances as the game progresses pass the 1 million mark, but based in the scope of the project it should be enough to handle itself
+This project uses three languages. The data/score of the game gets handle via Javascript which can have issues with performances as the game progresses pass the 1 million mark, but based in the scope of the project there doesn't seem to be any issues handling the amounts of information that the game is managing.
 
 - HTML
 - CSS
