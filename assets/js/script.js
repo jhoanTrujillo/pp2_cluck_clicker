@@ -24,7 +24,6 @@ const clicker = class{
     this.score = 999998;
     this.incremental = 1;
     this.goal = 1000000;
-
     // Objects holding the upgrade values 
     this.clickUpgradeValues = {
       cost: 25,
@@ -53,12 +52,10 @@ const clicker = class{
         isActive : false
       }
     ]
-    
     // Variables for score container and clicker element itself 
     this.clickerElement = clickerElement;  
     this.scoreElement = scoreElement;
     this.upgradeList = upgradeList;
-
     //Controls of audio should be played.
     this.isAudioActive = true;
     this.backgroundMusic = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/background_lofi.webm");
@@ -74,7 +71,6 @@ const clicker = class{
     this.scoreElement.innerHTML = Math.round((this.score + Number.EPSILON) * 100) / 100;
     this.victory();
   }
-
   /**
    * Increase the score.
    * Calls the add score method.
@@ -86,7 +82,6 @@ const clicker = class{
     this.saveToLocalStorage();
     this.addScore();
   }
-
   /**
   * Handles clicks on the HTML element set as the clicker.
   * Calls the increaseScore method. 
@@ -99,7 +94,6 @@ const clicker = class{
       this.unlockUpgrade();
     });
   }
-
   /**
    * Adds a span with an animation above the clicker element to display
    * The amount earn by each click 
@@ -110,18 +104,15 @@ const clicker = class{
   displayIncremental(e, imageContainer) {
     //Object to hold mouse X and Y coordinates
     let mousePosition = {};
-
     //Create element that will hold the clickpower to display when clicker element is clicked.
     const powerDisplay = document.createElement("div");
     powerDisplay.classList.add("temporary-score-display");
     powerDisplay.classList.add("is-size-1");
     powerDisplay.innerHTML = `${this.incremental}`;
-
     const frogIcon = document.createElement("img");
     frogIcon.classList.add("frog-icon");
     frogIcon.src = "https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/images/green_bean_icon.svg";
     powerDisplay.appendChild(frogIcon);
-
     //Check if the position if the clicker element is clicked or touch if in touchscreen.
     if (e.type === "click") {
       mousePosition.x = e.clientX;
@@ -130,21 +121,16 @@ const clicker = class{
       mousePosition.x = e.touches[0].clientX;
       mousePosition.y = e.touches[0].clientY;
     }
-
     //assigns the position of the mouse or finger touch to powerDisplay
     powerDisplay.style.left = mousePosition.x + "px";
     powerDisplay.style.top = mousePosition.y + "px";
-
     //gets element holding the clicker element
     let parent = imageContainer;
-
     //appends the span holding the clickPower variable to the container
-
     parent.appendChild(powerDisplay);
     powerDisplay.addEventListener("animationend", () => {
       powerDisplay.remove();
     });
-    
   }
   /**
    * Method that assigns an event listener to all upgrade boxes.
@@ -156,10 +142,8 @@ const clicker = class{
     for(let upgrade of this.upgradeList) {
       upgrade.addEventListener("click", (e) => {
         e.preventDefault();
-
         //Use the event to target the upgrade-type data attribue of the element.
         let upgradeType = e.currentTarget.dataset.upgradeType;
-
         //check for upgrade type to start logic
         if (upgradeType === "click") {
           this.increaseClickPower();
@@ -228,7 +212,6 @@ const clicker = class{
    */
   upgradeTimers(elementToUpgrade) {
     let timer = elementToUpgrade.currentTarget;
-    
     //Checks for the titles of the element and array of timer data to match
     //then it will upgrade that specific object in the array 
     for (let timerData of this.timers) {
@@ -250,9 +233,8 @@ const clicker = class{
       alert("Not enough points! Keep clicking");
       return;
     }
-
+    //play croak sound on upgrade
     this.playCroakSound();
-
     if (valueFromTimersDataArray.isActive != true) {
       valueFromTimersDataArray.isActive = true;
       timerElement.dataset.isActive = valueFromTimersDataArray.isActive;
