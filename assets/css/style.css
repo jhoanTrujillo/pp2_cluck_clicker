@@ -232,7 +232,7 @@ body{
 }
 
 /* Desktop styling */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .container__main {
     height: 80%;
     margin: auto 0 !important;
@@ -269,7 +269,7 @@ body{
 }
 
 /* Tablet Styling */
-@media screen and (min-width: 769px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
 
   /* Main section element styling - tablet */
   .main__container {
