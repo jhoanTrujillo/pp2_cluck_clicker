@@ -21,7 +21,7 @@ const init = () => {
 const clicker = class{
   constructor(clickerElement, scoreElement, upgradeList) {
     // Score tracking variables 
-    this.score = 0;
+    this.score = 999998;
     this.incremental = 1;
     this.goal = 1000000;
 
@@ -72,6 +72,7 @@ const clicker = class{
    */
   addScore() {
     this.scoreElement.innerHTML = Math.round((this.score + Number.EPSILON) * 100) / 100;
+    this.victory();
   }
 
   /**
@@ -412,43 +413,34 @@ const clicker = class{
    * Then makes player win the game displaying animation.
    */
     victory() {
-      const goal = this.goal;
-      const currentPoints = this.score;
-
-      if (currentPoints >= goal) {
+      if (this.score >= this.goal) {
           // Display Modal
           const modal = document.createElement('div');
+          const fanfare = new audio('https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/fanfare.mp3');
           modal.classList.add('modal');
+          modal.classList.add('is-active');
           modal.innerHTML = `
-              <div class="modal-content">
-                  <h2>Congratulations, you are the richest frog!</h2>
+          <div class="modal-background">
+            <div class="modal-content">
+              <div class="box has-background-light">
+                <h2 class="has-text-dark is-size-2">Congratulations, you are the richest frog on the pond!</h2>
               </div>
+            </div>
+          </div>
           `;
           document.body.appendChild(modal);
+          fanfare.play();
 
-          // Add Confetti Effect
-          const confettiContainer = document.createElement('div');
-          confettiContainer.classList.add('confetti-container');
-          for (let i = 0; i < 100; i++) {
-              const confetti = document.createElement('div');
-              confetti.classList.add('confetti');
-              confetti.style.left = `${Math.random() * 100}vw`;
-              confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-              confetti.style.animationDelay = `${Math.random() * 2}s`;
-              confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-              confettiContainer.appendChild(confetti);
-          }
-          document.body.appendChild(confettiContainer);
 
           // Remove Modal and Confetti after a delay
           setTimeout(() => {
               modal.remove();
               confettiContainer.remove();
-          }, 5000);
+          }, 10000);
       }
   }
   //End of class
-}
+};
 
 /* Navbar elements and behaviour */
 const menus = class{
@@ -487,7 +479,7 @@ const menus = class{
     });
   }
   //End of class
-}
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   // Variables holding the click elements and score element for the clicker class
@@ -510,8 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
   froggyClicker.clickCheck();
   froggyClicker.upgradeCheck();
   froggyClicker.muteSound();
-  froggyClicker.victory();
   });
-}
+};
 
 init();
