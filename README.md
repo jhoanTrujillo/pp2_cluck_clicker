@@ -19,7 +19,8 @@ My personal goal for this project is to create a clicker game framework that any
 2. Techonologies
   - Languages
   - Frameworks  
-
+3. Testing
+4. Resources
 
 ## 1. UX/UI
 
@@ -63,7 +64,19 @@ This project uses three languages. The data/score of the game gets handle via Ja
 
 - [Bulma CSS](https://bulma.io/) - A modern open source css framework.
 
-### Resources 
+## 3. Testing
+
+### Lighthouse performance
+
+Lighthouse was a crucial tool for ensuring the optimal performance of the project. Initial testing revealed that the mobile loading speed had a rating of 82, which isn't bad. However, it indicated that performance could be further optimized for mobile devices. By implementing various recommendations from Lighthouse, such as adding a srcset attribute to the main image used in the game, I was able to improve mobile performance to 92 points. In contrast, desktop performance has consistently remained at a solid 97 points throughout the development process.
+
+### Desktop performance
+![lighthouse performance image desktop](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/lighthouse_desktop.png)
+
+### Mobile performance
+![lighthouse performance image Mobile](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/lighthouse_mobile.png)
+
+## 4. Resources 
 
 A list of external resources such as codepen, images, and the likes: 
 
