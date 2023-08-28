@@ -411,7 +411,7 @@ const clicker = class{
    * Class that read if the score is equal or higher than the goal
    * Then makes player win the game displaying animation.
    */
-  function victory() {
+  victory() {
     const goal = this.goal;
     const currentPoints = this.score;
 
@@ -510,6 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
   froggyClicker.clickCheck();
   froggyClicker.upgradeCheck();
   froggyClicker.muteSound();
+  froggyClicker.victory();
   });
 }
 
