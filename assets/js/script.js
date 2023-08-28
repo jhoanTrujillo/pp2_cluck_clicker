@@ -407,6 +407,18 @@ const clicker = class{
 
     localStorage.setItem('froggyClickerData', JSON.stringify(dataToSave));
   }  
+  /**
+   * Class that read if the score is equal or higher than the goal
+   * Then makes player win the game displaying animation.
+   */
+  victory() {
+    const goal = this.goal;
+    const currentPoints = this.score;
+
+    if (currentPoints >= goal) {
+      
+    }
+  }
   //End of class
 }
 
