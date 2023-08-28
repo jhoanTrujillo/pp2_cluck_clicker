@@ -1,7 +1,7 @@
 # Froggy Clicker
 Developer: Jhoan Trujillo 
 
-![Responsive test image for the website goes here]()
+![Responsive test image for the website goes here](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/mockup_image.png)
 
 [Link to deploy version]( https://jhoantrujillo.github.io/pp2_froggy_clicker/).
 
@@ -25,18 +25,17 @@ My personal goal for this project is to create a clicker game framework that any
 
 ### Wireframe
 
-The game was inspired by another famous incremental game called cookie clicker, although my project still has work to become a fully fleshout game the layout is functional and provides an easily digested game experience. If you look at the images below you will find that the initial design is a bit different from the current design and the name and theme changed at the initial stages, but remain constant ever since:
+The game was inspired by another famous incremental game called cookie clicker, although my project still has work to become a fully fleshout game the layout is functional and provides an easily digested game experience. The original design change at the end from the originally planned design after getting feedback from user testing. 
 
 #### Desktop
-![Wireframe of app in desktop](https://jhoantrujillo.github.io/pp2_froggy_clicker/Wireframe/Wireframe_desktop.png)
+![Wireframe of app in desktop](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/Wireframe_desktop.png)
 
 
 #### Mobile
-![Wireframe of app in mobile](https://jhoantrujillo.github.io/pp2_froggy_clicker/Wireframe/Wireframe_mobile.png)
+![Wireframe of app in mobile](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/Wireframe_mobile.png)
 
 
 ### User Stories
-
 Below you can find some of the user stories I thought off when starting to work in the game and some of the users that might be interested in playing.
 
 **User Story 1:**
@@ -54,7 +53,7 @@ Below you can see more context regarding languages and frameworks used.
 
 #### Languages
 
-This project only uses three languages to function:
+This project uses three languages. The data/score of the game gets handle via Javascript which can have issues with performances as the game progresses pass the 1 million mark, but based in the scope of the project it should be enough to handle itself
 
 - HTML
 - CSS
