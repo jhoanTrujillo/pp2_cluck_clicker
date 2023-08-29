@@ -28,7 +28,7 @@ const clicker = class{
     this.clickUpgradeValues = {
       cost: 25,
       level : 0
-    }
+    };
     this.timers = [
       {
         title: "timerOne",
@@ -51,7 +51,7 @@ const clicker = class{
         bonus: 1,
         isActive : false
       }
-    ]
+    ];
     // Variables for score container and clicker element itself 
     this.clickerElement = clickerElement;  
     this.scoreElement = scoreElement;
@@ -151,7 +151,7 @@ const clicker = class{
           this.upgradeTimers(e);
         }    
       });
-    };
+    }
   }
   /**
    * Calculate cost, level and details of the clickUpgradeValues.
@@ -188,7 +188,7 @@ const clicker = class{
         const target = document.querySelector(`li[data-title="${timer.title}"]`);
         target.classList.remove("is-hidden");
       }
-    };
+    }
   }
   /**
    * Takes the value of any upgrade clicked and implement logic 
@@ -217,8 +217,8 @@ const clicker = class{
     for (let timerData of this.timers) {
       if (timer.dataset.title === timerData.title) {
         this.updateTimersDataValues(timer, timerData);
-      };
-    };
+      }
+    }
   }
   /**
    * Takes the timer object assign to an array position in the class. 
@@ -306,11 +306,13 @@ const clicker = class{
    * Background music controller. This gets called with the other main functions
    */
   playBackgroundMusic() {
-    let backgroundMusic = this.backgroundMusic;
+    const backgroundMusic = this.backgroundMusic;
+
     //Will only play audio if the isAudioActive variable is true.
     if (this.isAudioActive) {
       backgroundMusic.play();
     }
+    
     backgroundMusic.pause();
   }
   muteSound() {
@@ -400,7 +402,8 @@ const clicker = class{
                   Congratulations, you are the richest frog on the pond!
                 </h2>
                 <p class="has-text-light">
-                Thank you for playing. See you in the near future with an updated version
+                Thank you for playing. </br>
+                This project ends here, but I will improve the code and release a full game in the near future.
                 </p> 
               </div>
             </div>
@@ -422,6 +425,8 @@ const menus = class{
     this.upgradeButton = document.getElementById("show-upgrade");
     this.upgradeList = document.getElementById("upgrades");
     this.closeUpgradeButton = document.getElementById("close-upgrades");
+    this.rulesButton = document.getElementById("rules")
+
   }
   /**
    * Toggles the mobile menu to display the items inside the burger menu.
@@ -447,7 +452,47 @@ const menus = class{
     this.closeUpgradeButton.addEventListener("click", e => {
       e.preventDefault();
       this.upgradeList.classList.add("is-hidden-mobile");
-      this.upgradeList.classList.add("is-hidden-tablet-only")
+      this.upgradeList.classList.add("is-hidden-tablet-only");
+    });
+  }
+  /**
+   * Toggles the modal that displays the rules of the game.
+   */
+  toggleRulesModal() {
+    this.rulesButton.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      const rulesModal = document.createElement('div');
+      rulesModal.setAttribute("id", "rules-modal");
+      rulesModal.classList.add("modal");
+      rulesModal.classList.add('is-active');
+      rulesModal.innerHTML = `
+        <div class="modal-background">
+          <div class="modal-content modal-box modal-adjustment">
+            <div class="box has-background-dark">
+              <div class="container columns is-mobile"> 
+                <h2 class="has-text-success is-size-4-mobile is-size-2-desktop is-size-3-tablet column">
+                  Rules
+                </h2>
+                <button class="delete is-large column" id="close-rules-modal">
+              </div>
+              <ul class="container has-text-light">
+                <li>1. Click on the image of the froggy to gain points</li>
+                <li>2. Points can be use to buy upgrades in the upgrade menu.</li>
+                <li>3. Help Mr.Green Bean become a millionaire.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+  
+      // Append child to body
+      document.body.appendChild(rulesModal);
+  
+      // Attach event listener to the delete button inside the modal
+      const deleteButton = rulesModal.querySelector('#close-rules-modal');
+      deleteButton.addEventListener('click', () => {
+        rulesModal.remove(); // Remove the modal from the DOM
+      });
     });
   }
   //End of class
@@ -457,7 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Variables holding the click elements and score element for the clicker class
   const clickerElement = document.getElementById("clicker");
   const scoreElement = document.getElementById("score");
-  const upgradeList = document.querySelectorAll(".upgrade")
+  const upgradeList = document.querySelectorAll(".upgrade");
 
   // Created new clicker object 
   let froggyClicker = new clicker(clickerElement, scoreElement, upgradeList);
@@ -466,10 +511,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Class methods for menus in the game
   navbar.toggleMenu();
   navbar.toggleUpgradesContainer();
+  navbar.toggleRulesModal();
   // Class methods for clicker
   froggyClicker.clickCheck();
   froggyClicker.upgradeCheck();
-  froggyClicker.muteSound();
   });
 };
 
