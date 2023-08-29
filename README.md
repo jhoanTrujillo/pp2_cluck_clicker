@@ -7,21 +7,21 @@ Developer: Jhoan Trujillo
 
 ## Table Of Content
 
-1. Introduction
-2. UX
+1. [Introduction](#1-introduction)
+2. [UX](#2-ux)
   - Ideal User Demographic 
   - User Stories
   - Development Planes
   - Design
-3. Features
+3. [Features](#3-features)
   - Design Features
   - Existing Features
   - Features to Implement in the future
-4. Issues and Bugs
-5. Technologies Used
+4. [Issues and Bugs](#4-issues-bugs)
+5. [Technologies Used](#5-technologies-used)
   - Main Languages Used
   - Frameworks, Libraries & Programs Used
-6. Testing
+6. [Testing](#6-testing)
   - Testing User Stories
   - Manual Testing
   - Automated Testing
@@ -29,9 +29,9 @@ Developer: Jhoan Trujillo
     - Browser Validation
     - Lighthouse Test
   - User Testing
-7. Deployment
+7. [Deployment](#7-deployment)
   - Deploying on GitHub Pages
-8. Resources
+8. [Resources](#8-resources)
 
 
 
@@ -115,10 +115,11 @@ The game consists of a single-page layout, with all elements on the page being r
 
 ### Existing Features
 
-#### Game Page
+#### Game Page
 
 - Is a page that holds a single image, a score box, a goal, and a upgrade button or upgrade list depending on the device used. 
-- The game is totally contain inside this one page to ensure user comfort and keep the user engage in the game page.
+- The game is totally contained inside this one page to ensure user comfort and keep the user engage in the game.
+- The main page should only contain crucial core game mechanics such as clicker token, upgrades, and score. Note: Future additions such as achievements should be added to a secondary page as to not . 
 - 
 
 ### Features to Implement in the future
@@ -151,7 +152,7 @@ Some of the programs and framework use in this project.
 - [GitHub](https://github.com/) - To manage, control, and store code changes.
 - [Am I responsive?](https://ui.dev/amiresponsive?url=https://jhoantrujillo.github.io/pp2_froggy_clicker/index.html) - To check on site responsiveness.
 
-## 6. Testing
+## 6. Testing
 
 ### Testing User Stories
 
@@ -211,7 +212,7 @@ The following tools were use to validate and automated the JS code and HTML, CSS
 
 [Lighthouse](https://pagespeed.web.dev/) was a crucial tool for ensuring the optimal performance of the project. Initial testing revealed that the mobile loading speed had a rating of 82, which isn't bad. However, it indicated that performance could bew further optimized for mobile devices. By implementing various recommendations from Lighthouse, such as adding a srcset attribute to the main image used in the game, I was able to improve mobile performance to 92 points. In contrast, desktop performance has consistently remained at a solid 97 points throughout the development process.
 
-#### Desktop performance
+#### Desktop performance
 ![lighthouse performance image desktop](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/lighthouse_desktop.png)
 
 #### Mobile performance
@@ -219,7 +220,7 @@ The following tools were use to validate and automated the JS code and HTML, CSS
 
 ### User Testing
 
-The project was shared with a wide array of game enthusiast and casual players. The feedback was used to improve on the design as I worked on the different versions of the game. From 
+A user-centered approach, the project underwent rigorous scrutiny by a diverse community of both avid gamers and casual players. Their invaluable feedback served as the compass guiding the evolution of the game through its various iterations. The insights gleaned from this collaborative process led to significant enhancements across the board. Specifically, the upgrades menu underwent a transformation based on user observations, while issues pertaining to tablet responsiveness were meticulously addressed. This commitment to user testing not only refined the game's design but also underscored the project's dedication to delivering an exceptional player experience.
 
 ## 7. Deployment
 
@@ -243,3 +244,4 @@ A list of external resources that were use for the creation and testing of this 
 2. [Glass CSS - Tool to preview and quickly generate glass looking css backgrounds by Mike Tromba](https://css.glass/)
 3. [lighthouse](https://pagespeed.web.dev/)
 4. [JShint](https://jshint.com/)
+5. [Google Font](https://fonts.google.com/)
