@@ -176,10 +176,15 @@ body{
 .modal-adjustment {
   width: 90%;
   margin-top: 35%;
-  background: linear-gradient(-45deg, hsl(48, 100%, 67%), hsl(348, 100%, 61%), hsl(204, 86%, 53%), hsl(171, 100%, 41%));
-	animation: gradient 15s ease infinite;
 }
 
+.has-background-gradient{
+  /*Colors in the linear gradient are colors found native in the bulma framework*/
+  background: linear-gradient(-45deg, hsl(48, 100%, 67%), hsl(348, 100%, 61%), hsl(204, 86%, 53%), hsl(171, 100%, 41%));
+	background-size: 200% 200%;
+	animation: gradient 15s ease infinite;
+  overflow-x: hidden;
+}
 /* Mobile styling */
 @media screen and (max-width: 768px) {
   /* Navbar styling in mobile*/
@@ -278,6 +283,11 @@ body{
     padding: 1em;
     height: 90%;
   }
+
+  .modal-adjustment {
+    width: 90%;
+    margin-top: 50%;
+  }
 }
 
 /* Tablet Styling */
@@ -336,5 +346,9 @@ body{
 
   .upgrade__close {
     margin: 1rem;
+  }
+
+  .modal-adjustment {
+    margin-top: 50%;
   }
 }

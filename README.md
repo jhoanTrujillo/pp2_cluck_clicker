@@ -137,7 +137,7 @@ future features:
 
 Although the project started and working around a solid idea and layout some of the major issues I faced when building the project was ensuring responsiveness with a new framework I'm not familar using. The Bulma framework was amazing, but as any new technology takes some practice to get the little details right. Responsiveness in tablet compare to desktop was a bit challenging on certain aspects when using the framework, but I was able to work around it, by adding new classes not including in the framework and giving exclusive styling to the menu.
 
-
+Some additional bug I had to work on was the background audio playing multiple instances when toggling between allowing sounds and mute. I had to re-write the code on inside the playBackgroundMusic() and muteSound methods to make sure all instances of sound are stop.
 
 
 [⬆ back to top](#froggy-clicker)

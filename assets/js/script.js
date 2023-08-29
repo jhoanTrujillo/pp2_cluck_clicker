@@ -396,11 +396,11 @@ const clicker = class{
           modal.innerHTML = `
           <div class="modal-background">
             <div class="modal-content modal-box modal-adjustment">
-              <div class="box has-background-dark">
-                <h2 class="has-text-success is-size-4-mobile is-size-2-desktop is-size-3-tablet">
+              <div class="box has-background-gradient">
+                <h2 class="has-text-dark is-size-4-mobile is-size-2-desktop is-size-3-tablet">
                   Congratulations, you are the richest frog on the pond!
                 </h2>
-                <p class="has-text-light">
+                <p class="has-text-dark">
                 Thank you for playing. </br>
                 This project ends here, but I will improve the code and release a full game in the near future.
                 </p> 
