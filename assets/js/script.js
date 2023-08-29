@@ -21,7 +21,7 @@ const init = () => {
 const clicker = class{
   constructor(clickerElement, scoreElement, upgradeList) {
     // Score tracking variables 
-    this.score = 999998;
+    this.score = 0;
     this.incremental = 1;
     this.goal = 1000000;
     // Objects holding the upgrade values 
@@ -307,30 +307,29 @@ const clicker = class{
    */
   playBackgroundMusic() {
     const backgroundMusic = this.backgroundMusic;
-
-    //Will only play audio if the isAudioActive variable is true.
     if (this.isAudioActive) {
       backgroundMusic.play();
+    } else {
+      backgroundMusic.pause(); // Pause the music when audio is not active
     }
-    
-    backgroundMusic.pause();
   }
+  /**
+   * Mutes the sounds in the game
+   */
   muteSound() {
     const audioToggler = document.getElementById("audio-toggle");
-    //Add event listener to the button that will toggle the audio.
     audioToggler.addEventListener('click', (e) => {
       e.preventDefault();
-      //Checks if isAudioActive is true and if it is it disables the audio
-      if (this.isAudioActive === true) {
+      if (this.isAudioActive) {
         this.isAudioActive = false;
         e.target.children[0].classList.toggle("is-hidden"); 
         e.target.children[1].classList.toggle("is-hidden");
-        this.playBackgroundMusic();
+        this.playBackgroundMusic(); // This will pause the music when isAudioActive is false
       } else {
         this.isAudioActive = true;
         e.target.children[0].classList.toggle("is-hidden"); 
         e.target.children[1].classList.toggle("is-hidden");
-        this.playBackgroundMusic();
+        this.playBackgroundMusic(); // This will play the music when isAudioActive is true
       }
     });
   }

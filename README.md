@@ -117,8 +117,9 @@ The game consists of a single-page layout, with all elements on the page being r
 
 - Is a page that holds a single image, a score box, a goal, and a upgrade button or upgrade list depending on the device used. 
 - The game is totally contained inside this one page to ensure user comfort and keep the user engage in the game.
-- The main page should only contain crucial core game mechanics such as clicker token, upgrades, and score. Note: Future additions such as achievements should be added to a secondary page as to not . 
-- 
+- The main page should only contain crucial core game mechanics such as clicker token, upgrades, and score. Note: Future additions such as achievements should be added to a secondary page as to not to move players from said page.
+- the score and goal are clearly visible in the main screen.
+- There is a local storage save to ensure players can return to the game in the future and continue. 
 
 ### Features to Implement in the future
 
@@ -128,10 +129,15 @@ future features:
 - Auto generated upgrades of different types
 - Background changes as the user reaches higher point counts.
 - Different events to keep the players engage.
+- Moving saves to a backend for data retention.
 
 [⬆ back to top](#froggy-clicker)
 
 ## 4. Issues Bugs
+
+Although the project started and working around a solid idea and layout some of the major issues I faced when building the project was ensuring responsiveness with a new framework I'm not familar using. The Bulma framework was amazing, but as any new technology takes some practice to get the little details right. Responsiveness in tablet compare to desktop was a bit challenging on certain aspects when using the framework, but I was able to work around it, by adding new classes not including in the framework and giving exclusive styling to the menu.
+
+
 
 
 [⬆ back to top](#froggy-clicker)
