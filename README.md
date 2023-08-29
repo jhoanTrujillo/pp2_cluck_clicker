@@ -243,4 +243,3 @@ A list of external resources that were use for the creation and testing of this 
 2. [Glass CSS - Tool to preview and quickly generate glass looking css backgrounds by Mike Tromba](https://css.glass/)
 3. [lighthouse](https://pagespeed.web.dev/)
 4. [JShint](https://jshint.com/)
-
