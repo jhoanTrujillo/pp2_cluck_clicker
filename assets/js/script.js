@@ -389,14 +389,19 @@ const clicker = class{
       if (this.score >= this.goal) {
           // Display Modal
           const modal = document.createElement('div');
-          const fanfare = new audio('https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/fanfare.mp3');
+          const fanfare = new Audio('https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/fanfare.mp3');
           modal.classList.add('modal');
           modal.classList.add('is-active');
           modal.innerHTML = `
           <div class="modal-background">
-            <div class="modal-content">
-              <div class="box has-background-light">
-                <h2 class="has-text-dark is-size-2">Congratulations, you are the richest frog on the pond!</h2>
+            <div class="modal-content modal-box">
+              <div class="box has-background-dark">
+                <h2 class="has-text-success is-size-4-mobile is-size-2-desktop is-size-3-tablet modal-adjustment">
+                  Congratulations, you are the richest frog on the pond!
+                </h2>
+                <p class="has-text-light">
+                Thank you for playing. See you in the near future with an updated version
+                </p> 
               </div>
             </div>
           </div>
@@ -404,10 +409,6 @@ const clicker = class{
           document.body.appendChild(modal);
           fanfare.play();
           // Remove Modal and Confetti after a delay
-          setTimeout(() => {
-              modal.remove();
-              confettiContainer.remove();
-          }, 10000);
       }
   }
   //End of class

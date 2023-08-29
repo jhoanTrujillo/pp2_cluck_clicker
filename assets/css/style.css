@@ -226,9 +226,14 @@ body{
   .upgrade-list__scroll {
     overflow-y: scroll;
   }
-  
+
+  /* Footer */
   .footer {
     z-index: 10;
+  }
+  .modal-adjustment {
+    width: 90%;
+    margin-top: 50%;
   }
 }
 
@@ -282,6 +287,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-bottom: 15% ;
+    padding: 3rem 1.5rem 0 1.5rem; 
   }
 
   /* Clicker image and container style and size*/
@@ -324,5 +330,11 @@ body{
 
   .upgrade__close {
     margin: 1rem;
+  }
+
+  /*Modal adjustments*/
+  .modal-adjustment {
+    width: 90%;
+    margin-top: 50%;
   }
 }

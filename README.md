@@ -11,7 +11,6 @@ Developer: Jhoan Trujillo
 2. [UX](#2-ux)
   - Ideal User Demographic 
   - User Stories
-  - Development Planes
   - Design
 3. [Features](#3-features)
   - Design Features
@@ -95,7 +94,7 @@ The design inspiration for the game was taken from mid 2000s famous clicker game
 
 The Bulma CSS framework offers a plethora of vibrant and contemporary colors, a resource I enthusiastically harnessed to maximize the framework's potential. These colors effectively evoke a sense of happiness and positivity while ensuring accessibility.
 
-![bulma css framework colors](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/bulma_colors.png)
+![image of colors use in bulma css](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/bulma_colors.png)
 
 #### Typography
 
@@ -130,9 +129,12 @@ future features:
 - Background changes as the user reaches higher point counts.
 - Different events to keep the players engage.
 
+[⬆ back to top](#froggy-clicker)
+
 ## 4. Issues Bugs
 
 
+[⬆ back to top](#froggy-clicker)
 
 ## 5. Technologies Used
 
@@ -150,6 +152,8 @@ Some of the programs and framework use in this project.
 - [Balsamic](https://balsamiq.com/) - Low fidelity wireframing software
 - [GitHub](https://github.com/) - To manage, control, and store code changes.
 - [Am I responsive?](https://ui.dev/amiresponsive?url=https://jhoantrujillo.github.io/pp2_froggy_clicker/index.html) - To check on site responsiveness.
+
+[⬆ back to top](#froggy-clicker)
 
 ## 6. Testing
 
@@ -182,12 +186,12 @@ Some of the programs and framework use in this project.
 
 ### Manual Testing
 
-Here are some gif for manual testing:
+There was a indepth manual testing throught the process to ensure all elements of the project were functional, from audio change button, to elements that change or display information or feedback on click. Below you can see some examples.
 
 <details>
   <summary>Click functionality & updates</summary>
   <p>Testing the incremental functionality</p>
-  <img src="!https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/manual_testing_click.gif">
+  <img src="https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/manual_testing_click.gif">
 </details>
 
 ### Automated Testing
@@ -220,6 +224,8 @@ The following tools were use to validate and automated the JS code and HTML, CSS
 ### User Testing
 
 Used user-centered approach, to improve on . Their invaluable feedback served as the compass guiding the evolution of the game through its various iterations. The insights gleaned from this collaborative process led to significant enhancements across the board. Specifically, the upgrades menu underwent a transformation based on user observations, while issues pertaining to tablet responsiveness were meticulously addressed. This commitment to user testing not only refined the game's design but also underscored the project's dedication to delivering an exceptional player experience.
+
+[⬆ back to top](#froggy-clicker)
 
 ## 7. Deployment
 
