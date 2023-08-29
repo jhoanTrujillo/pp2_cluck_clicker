@@ -409,8 +409,9 @@ const clicker = class{
           </div>
           `;
           document.body.appendChild(modal);
-          fanfare.play();
-          // Remove Modal and Confetti after a delay
+          if (this.isAudioActive) {
+            fanfare.play();
+          }
       }
   }
   //End of class
