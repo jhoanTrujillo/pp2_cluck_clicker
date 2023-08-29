@@ -21,7 +21,7 @@ const init = () => {
 const clicker = class{
   constructor(clickerElement, scoreElement, upgradeList) {
     // Score tracking variables 
-    this.score = 999999;
+    this.score = 0;
     this.incremental = 1;
     this.goal = 1000000;
     // Objects holding the upgrade values 
