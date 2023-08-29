@@ -21,7 +21,7 @@ const init = () => {
 const clicker = class{
   constructor(clickerElement, scoreElement, upgradeList) {
     // Score tracking variables 
-    this.score = 0;
+    this.score = 999999;
     this.incremental = 1;
     this.goal = 1000000;
     // Objects holding the upgrade values 
@@ -401,8 +401,9 @@ const clicker = class{
                   Congratulations, you are the richest frog on the pond!
                 </h2>
                 <p class="has-text-dark">
-                Thank you for playing. </br>
-                This project ends here, but I will improve the code and release a full game in the near future.
+                Thank you for playing. 
+                This project ends here, 
+                but I will improve the code and release a full game in the near future.
                 </p> 
               </div>
             </div>
