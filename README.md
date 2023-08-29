@@ -3,7 +3,7 @@ Developer: Jhoan Trujillo
 
 ![Responsive test image for the website goes here](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/mockup_image.png)
 
-[Link to deploy version]( https://jhoantrujillo.github.io/pp2_froggy_clicker/)
+[Link to deploy version](https://jhoantrujillo.github.io/pp2_froggy_clicker/)
 
 ## Table Of Content
 
@@ -73,7 +73,7 @@ As a commuter on long train rides, I want to play a clicker game on my smartphon
 2. As a new user, I want the instructions to be easily found, clear and concise.
 3. As a new user, I want an entertaining and engaging game loop.
 
-#### Current user
+#### Current user
 
 1. As a current user, I want to have fun and engaging game loop.
 2. As a current user, I want to have an easy to process game loop.
@@ -87,33 +87,27 @@ As a commuter on long train rides, I want to play a clicker game on my smartphon
 
 The design inspiration for the game was taken from mid 2000s famous clicker games such as cookie clicker. The layout is made to inspire a more comforting and calming feeling of course. The decision of using the Bulma framework for CSS seemed like a natural decision as the colors, and minimalistic elements used in the framework compliment a more simple and minimalistic look. 
 
-#### Color Scheme
-
-
-
-#### Typography
-
-To maintain the text readable and engaging I decided to use 
 
 #### Desktop
-
-The initial idea of the wireframe was to create a easy interface that would showcase all elements needed to play in one screen. All elements are display in plain view. 
-
 ![Wireframe of app in desktop](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/Wireframe_desktop.png)
 
 
 #### Mobile
-
-
 ![Wireframe of app in mobile](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/Wireframe_mobile.png)
 
+#### Color Scheme
 
-### User Stories
+The colors selected are: 
+
+- Accent 1: 
+- Accent 2:#ff3860
+
+#### Typography
+
+In my project, I opted for the Montserrat font for the majority of elements to ensure a clear and easily readable appearance for the game. Additionally, I employed the "Cherry Bomb" font specifically for the game update elements, enhancing the user's visibility of these dynamic notifications such as the points gain from clicking the clicker image.
 
 
 ## 2. Technologies Used
-
-
 
 #### Languages Used
 
@@ -123,13 +117,16 @@ The initial idea of the wireframe was to create a easy interface that would show
 
 #### Frameworks, Libraries & Programs Used
 
+Some of the programs and framework use in this project.
+
 - [Bulma CSS](https://bulma.io/) - A modern open source css framework.
+- [Balsamic](https://balsamiq.com/) - Low fidelity wireframing software
+- [GitHub](https://github.com/) - To manage, control, and store code changes.
+- [Am I responsive?](https://ui.dev/amiresponsive?url=https://jhoantrujillo.github.io/pp2_froggy_clicker/index.html) - To check on site responsiveness.
 
 ## 6. Testing
 
 ### Testing User Stories
-
-#### Current User Goals
 
 **New User Goals:**
 
@@ -158,6 +155,14 @@ The initial idea of the wireframe was to create a easy interface that would show
 
 ### Manual Testing
 
+Here are some gif for manual testing:
+
+<details>
+  <summary>Click functionality & updates</summary>
+  <p>Testing the incremental functionality</p>
+  <img src="!https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/manual_testing_click.gif">
+</details>
+
 ### Automated Testing
 
 #### Code Validation 
@@ -172,7 +177,7 @@ The following tools were use to validate and automated the JS code and HTML, CSS
 - Chrome Testing - [Image](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/chrome_test.png)
 - Opera Testing - [Image](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/opera_test.png)
 
-#### Lighthouse Test
+### Lighthouse Test
 
 **Lighthouse performance**
 
