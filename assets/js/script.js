@@ -394,9 +394,9 @@ const clicker = class{
           modal.classList.add('is-active');
           modal.innerHTML = `
           <div class="modal-background">
-            <div class="modal-content modal-box">
+            <div class="modal-content modal-box modal-adjustment">
               <div class="box has-background-dark">
-                <h2 class="has-text-success is-size-4-mobile is-size-2-desktop is-size-3-tablet modal-adjustment">
+                <h2 class="has-text-success is-size-4-mobile is-size-2-desktop is-size-3-tablet">
                   Congratulations, you are the richest frog on the pond!
                 </h2>
                 <p class="has-text-light">
