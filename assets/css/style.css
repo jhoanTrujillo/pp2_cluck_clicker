@@ -5,7 +5,7 @@
   /* Colors */
   --high-contrast: #f1f1f1;
   --accent-color: hsl(348, 100%, 61%);
-}
+} 
 
 /* Animations */
 @keyframes rotation360 {
@@ -36,7 +36,6 @@
     opacity: 0;
   }
 }
-
 /*General Styling*/
 * {
   margin: 0;
@@ -226,6 +225,7 @@ body{
   .upgrade-list__scroll {
     overflow-y: scroll;
   }
+  
   .footer {
     z-index: 10;
   }

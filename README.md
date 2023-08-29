@@ -79,10 +79,6 @@ As a commuter on long train rides, I want to play a clicker game on my smartphon
 2. As a current user, I want to have an easy to process game loop.
 3. As a current user, I want to be able to keep my progress if I leave the page.
 
-### Development Planes
-
-
-
 ### Design
 
 The design inspiration for the game was taken from mid 2000s famous clicker games such as cookie clicker. The layout is made to inspire a more comforting and calming feeling of course. The decision of using the Bulma framework for CSS seemed like a natural decision as the colors, and minimalistic elements used in the framework compliment a more simple and minimalistic look. 
@@ -106,8 +102,39 @@ The colors selected are:
 
 In my project, I opted for the Montserrat font for the majority of elements to ensure a clear and easily readable appearance for the game. Additionally, I employed the "Cherry Bomb" font specifically for the game update elements, enhancing the user's visibility of these dynamic notifications such as the points gain from clicking the clicker image.
 
+## 3. Features
 
-## 2. Technologies Used
+### Design Features
+
+The game consists of a single-page layout, with all elements on the page being responsive for tablets, desktops, and mobile devices:
+
+- Positioned at the top of the page, the header houses the sound controller for muting audio and the option to access the rules modal.
+- At the bottom, the footer features links to LinkedIn and GitHub, alongside a small copyright symbol and message.
+- The central components of the page, including the clicker image and score, are all arranged as the primary focal points.
+- The upgrades list remains concealed on tablets and mobile devices, while it is fully displayed when viewed on a desktop. This approach ensures accessibility and visibility for each device type. 
+
+### Existing Features
+
+#### Game Page
+
+- Is a page that holds a single image, a score box, a goal, and a upgrade button or upgrade list depending on the device used. 
+- The game is totally contain inside this one page to ensure user comfort and keep the user engage in the game page.
+- 
+
+### Features to Implement in the future
+
+future features:
+
+- Achievement display
+- Auto generated upgrades of different types
+- Background changes as the user reaches higher point counts.
+- Different events to keep the players engage.
+
+## 4. Issues Bugs
+
+
+
+## 5. Technologies Used
 
 #### Languages Used
 
@@ -171,6 +198,7 @@ The following tools were use to validate and automated the JS code and HTML, CSS
 
 - [JShint](https://jshint.com/) - was used to validate the JS code.
 - [Markup Validation Service](https://validator.w3.org/) - Was used to validate CSS and HTML.
+- [Lighthouse testing](https://web.dev/measure/) 
 
 #### Browser Validation
 
@@ -191,13 +219,11 @@ The following tools were use to validate and automated the JS code and HTML, CSS
 
 ### User Testing
 
-The project was shared with a wide array of game enthusiast and casual players. 
+The project was shared with a wide array of game enthusiast and casual players. The feedback was used to improve on the design as I worked on the different versions of the game. From 
 
 ## 7. Deployment
 
-The project was developed using VS Code and committed on a regular basis to GitHub.
-
-### Deploying on GitHub Pages
+### Deployed on GitHub Pages
 
 To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
 

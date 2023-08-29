@@ -240,10 +240,8 @@ const clicker = class{
       timerElement.dataset.isActive = valueFromTimersDataArray.isActive;
       this.setTimerIncrement(valueFromTimersDataArray);
     } 
-
     this.updateUpgradeValues(valueFromTimersDataArray);
     valueFromTimersDataArray.bonus += 0.1;
-
   }
   /**
    * Updates the values of a timer
@@ -254,17 +252,15 @@ const clicker = class{
     timerObject.level += 1;
     this.score -= timerObject.cost;
     this.scoreElement.innerHTML = this.score;
-
     this.upgradeCostCalculator(timerObject);
-
     const id = this.idBuilder(timerObject);
-
     //Adds values to the generated IDs
     document.getElementById(id[0]).innerText = `${timerObject.level}`;
     document.getElementById(id[1]).innerText = `${timerObject.cost}`;
   }
   /**
-   * Builds the ID needed 
+   * Builds the ID needed to target score values in the HTML document
+   * 
    * @param {*} timerObjectReference 
    * @returns - an array with the following result 0 : level display id, 1 : cost display id.
    */
@@ -273,21 +269,25 @@ const clicker = class{
     const id = `${timerObjectReference.title}`;
     const idLevel = id + "Level";
     const idCost = id + "Cost";
-
     return [idLevel, idCost];
   }
+  /**
+   * 
+   * 
+   * @param {*} timerObject 
+   */
   setTimerIncrement(timerObject) {
     if (timerObject.isActive) {
       const incremental = timerObject.bonus;
-      const scoreElement = this.scoreElement; // Assuming you have defined scoreElement somewhere
-      
+      const scoreElement = this.scoreElement; 
+      //Function used to increase  
       const updateScore = () => {
         this.score += incremental;
         this.score = Math.round((this.score + Number.EPSILON) * 100) / 100;
         scoreElement.innerHTML = this.score;
         setTimeout(updateScore, 1000); // Call the function again after 1000ms (1 second)
       };
-  
+      //Call updateScore function inside with the timer
       setTimeout(updateScore, 1000); // Initial call to start the process
     }
   }
@@ -296,7 +296,6 @@ const clicker = class{
    */
   playCroakSound() {
     const croak = new Audio("https://jhoantrujillo.github.io/pp2_froggy_clicker/assets/sounds/frog_croak.mp3");
-
     //Will only play audio if the isAudioActive variable is true.
     if (this.isAudioActive) {
       croak.volume = 0.5;
@@ -308,17 +307,14 @@ const clicker = class{
    */
   playBackgroundMusic() {
     let backgroundMusic = this.backgroundMusic;
-    
     //Will only play audio if the isAudioActive variable is true.
     if (this.isAudioActive) {
       backgroundMusic.play();
-    } 
-
+    }
     backgroundMusic.pause();
   }
   muteSound() {
     const audioToggler = document.getElementById("audio-toggle");
-
     //Add event listener to the button that will toggle the audio.
     audioToggler.addEventListener('click', (e) => {
       e.preventDefault();
@@ -334,7 +330,6 @@ const clicker = class{
         e.target.children[1].classList.toggle("is-hidden");
         this.playBackgroundMusic();
       }
-
     });
   }
   /**
@@ -342,7 +337,6 @@ const clicker = class{
    */
   loadFromLocalStorage() {
     const savedData = localStorage.getItem('froggyClickerData');
-
     if (savedData) {
       const parsedData = JSON.parse(savedData);
 
@@ -350,7 +344,6 @@ const clicker = class{
       this.incremental = parsedData.incremental;
       this.clickUpgradeValues = parsedData.clickUpgradeValues;
       this.timers = parsedData.timers;
-
       // Update HTML elements with loaded data
       this.scoreElement.innerHTML = Math.round((this.score + Number.EPSILON) * 100) / 100;
       document.getElementById("clickLevel").innerHTML = this.clickUpgradeValues.level;
@@ -366,7 +359,6 @@ const clicker = class{
           parentElement.classList.remove("is-hidden");
           // Restart the old setTimeout function for active timers
           this.setTimerIncrement(timer);
-          const bonus = (timer.bonus * timer.level).toFixed(1);
           levelElement.innerHTML = timer.level;
           costElement.innerHTML = timer.cost;
           // Update the bonus value in your HTML structure if needed
@@ -387,7 +379,6 @@ const clicker = class{
       clickUpgradeValues: this.clickUpgradeValues,
       timers: this.timers
     };
-
     localStorage.setItem('froggyClickerData', JSON.stringify(dataToSave));
   }  
   /**
@@ -412,8 +403,6 @@ const clicker = class{
           `;
           document.body.appendChild(modal);
           fanfare.play();
-
-
           // Remove Modal and Confetti after a delay
           setTimeout(() => {
               modal.remove();
@@ -473,13 +462,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let froggyClicker = new clicker(clickerElement, scoreElement, upgradeList);
   // Create new menu object
   let navbar = new menus();
-
-  // Class method calls - hover over method for doctype explanation.
-
   // Class methods for menus in the game
   navbar.toggleMenu();
   navbar.toggleUpgradesContainer();
-
   // Class methods for clicker
   froggyClicker.clickCheck();
   froggyClicker.upgradeCheck();
