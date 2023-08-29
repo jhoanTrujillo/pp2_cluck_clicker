@@ -93,10 +93,9 @@ The design inspiration for the game was taken from mid 2000s famous clicker game
 
 #### Color Scheme
 
-The colors selected are: 
+The Bulma CSS framework offers a plethora of vibrant and contemporary colors, a resource I enthusiastically harnessed to maximize the framework's potential. These colors effectively evoke a sense of happiness and positivity while ensuring accessibility.
 
-- Accent 1: 
-- Accent 2:#ff3860
+![bulma css framework colors](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/bulma_colors.png)
 
 #### Typography
 
@@ -220,7 +219,7 @@ The following tools were use to validate and automated the JS code and HTML, CSS
 
 ### User Testing
 
-A user-centered approach, the project underwent rigorous scrutiny by a diverse community of both avid gamers and casual players. Their invaluable feedback served as the compass guiding the evolution of the game through its various iterations. The insights gleaned from this collaborative process led to significant enhancements across the board. Specifically, the upgrades menu underwent a transformation based on user observations, while issues pertaining to tablet responsiveness were meticulously addressed. This commitment to user testing not only refined the game's design but also underscored the project's dedication to delivering an exceptional player experience.
+Used user-centered approach, to improve on . Their invaluable feedback served as the compass guiding the evolution of the game through its various iterations. The insights gleaned from this collaborative process led to significant enhancements across the board. Specifically, the upgrades menu underwent a transformation based on user observations, while issues pertaining to tablet responsiveness were meticulously addressed. This commitment to user testing not only refined the game's design but also underscored the project's dedication to delivering an exceptional player experience.
 
 ## 7. Deployment
 
