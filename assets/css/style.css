@@ -114,7 +114,7 @@ body{
   display: flex;
   flex-direction: row;
   position: absolute;
-  color: var(--accent-color);
+  color: var(--high-contrast);
   font-family: var(--display-font);
   width: 100px;
   /*Prevent selection of element when double clicked*/
@@ -290,7 +290,7 @@ body{
 
   .modal-adjustment {
     width: 90%;
-    margin-top: 50%;
+    margin-top: 25%;
   }
 }
 
@@ -354,6 +354,6 @@ body{
 
   .modal-adjustment {
     width: 60%;
-    margin-top: 20%;
+    margin-top: 22%;
   }
 }
