@@ -137,8 +137,7 @@ future features:
 
 Although the project started and working around a solid idea and layout some of the major issues I faced when building the project was ensuring responsiveness with a new framework I'm not familar using. The Bulma framework was amazing, but as any new technology takes some practice to get the little details right. Responsiveness in tablet compare to desktop was a bit challenging on certain aspects when using the framework, but I was able to work around it, by adding new classes not including in the framework and giving exclusive styling to the menu.
 
-Some additional bug I had to work on was the background audio playing multiple instances when toggling between allowing sounds and mute. I had to re-write the code on inside the playBackgroundMusic() and muteSound methods to make sure all instances of sound are stop.
-
+Some additional bug I had to work on was the background audio playing multiple instances when toggling between allowing sounds and mute. I had to re-write the code on inside the playBackgroundMusic() and muteSound methods to make sure all instances of sound stop.
 
 [⬆ back to top](#froggy-clicker)
 
@@ -190,36 +189,29 @@ Some of the programs and framework use in this project.
 
 [⬆ back to top](#froggy-clicker)
 
-### Manual Testing
-
-There was a indepth manual testing throught the process to ensure all elements of the project were functional, from audio change button, to elements that change or display information or feedback on click. Below you can see some examples.
-
-<details>
-  <summary>Click functionality & updates</summary>
-  <p>Testing the incremental functionality</p>
-  <img src="https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/manual_testing_click.gif">
-</details>
-
 ### Automated Testing
 
 #### Code Validation 
 
 The following tools were use to validate and automated the JS code and HTML, CSS.
 
-- [JShint](https://jshint.com/) - was used to validate the JS code.
-- [Markup Validation Service](https://validator.w3.org/) - Was used to validate CSS and HTML.
-- [Lighthouse testing](https://web.dev/measure/) 
+- [JShint](https://jshint.com/) - Only warnings about ES6 only syntax.
+- [Markup Validation Service](https://validator.w3.org/) - The HTML and CSS files passed the validation from the markup validation tool without issues. 
+- [Lighthouse testing](https://web.dev/measure/) - See more about lighthouse testing below. 
 
 #### Browser Validation
 
 - Chrome Testing - [Image](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/chrome_test.png)
 - Opera Testing - [Image](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/opera_test.png)
+- Firefox Testing - [Image](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/firefox_testing.png)
 
 ### Lighthouse Test
 
 **Lighthouse performance**
 
 [Lighthouse](https://pagespeed.web.dev/) was a crucial tool for ensuring the optimal performance of the project. Initial testing revealed that the mobile loading speed had a rating of 82, which isn't bad. However, it indicated that performance could bew further optimized for mobile devices. By implementing various recommendations from Lighthouse, such as adding a srcset attribute to the main image used in the game, I was able to improve mobile performance to 92 points. In contrast, desktop performance has consistently remained at a solid 97 points throughout the development process.
+
+Note: As of my latest change every parameter is 100 points but performance which mantains the same values.
 
 #### Desktop performance
 ![lighthouse performance image desktop](https://jhoantrujillo.github.io/pp2_froggy_clicker/readme_images/lighthouse_desktop.png)
